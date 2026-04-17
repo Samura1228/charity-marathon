@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard — Limassol Charity Run</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <!-- ========== LOGIN SCREEN ========== -->
+    <div class="login-screen" id="login-screen">
+        <div class="login-card">
+            <div class="login-logo">
+                <i class="fas fa-running"></i>
+                <span>LIMASSOL CHARITY RUN</span>
+            </div>
+            <h1 class="login-title">Admin Dashboard</h1>
+            <p class="login-subtitle">Enter your password to access the dashboard</p>
+            <form id="login-form" class="login-form">
+                <div class="login-input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="login-password" placeholder="Enter password" autocomplete="current-password" required>
+                </div>
+                <div class="login-error" id="login-error">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span>Incorrect password. Please try again.</span>
+                </div>
+                <button type="submit" class="login-btn">
+                    <span>Login</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+            
+        </div>
+    </div>
+
+    <!-- ========== DASHBOARD ========== -->
+    <div class="dashboard" id="dashboard" style="display: none;">
+
+        <!-- Header -->
+        <header class="dash-header">
+            <div class="dash-header-left">
+                <div class="dash-logo">
+                    <i class="fas fa-running"></i>
+                    <span>LIMASSOL CHARITY RUN</span>
+                </div>
+                <h1 class="dash-title">Admin Dashboard</h1>
+            </div>
+            <div class="dash-header-right">
+                <button class="dash-btn dash-btn-outline" id="refresh-btn">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>Refresh Data</span>
+                </button>
+                <button class="dash-btn dash-btn-ghost" id="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Demo Data Banner -->
+        <div class="demo-banner" id="demo-banner" style="display: none;">
+            <i class="fas fa-info-circle"></i>
+            <span>
+                <strong>Demo Mode:</strong> Google Sheet is not connected. Showing sample data.
+                See <a href="SETUP_GUIDE.md" target="_blank">Setup Guide</a> to connect your Google Sheet.
+            </span>
+            <button class="demo-banner-close" id="demo-banner-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div class="loading-overlay" id="loading-overlay" style="display: none;">
+            <div class="spinner"></div>
+            <p>Loading data...</p>
+        </div>
+
+        <!-- Main Content -->
+        <main class="dash-main">
+
+            <!-- Stats Cards -->
+            <section class="stats-grid">
+                <div class="stat-card stat-card-total">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="stat-total">0</span>
+                        <span class="stat-label">Total Registrations</span>
+                    </div>
+                </div>
+                <div class="stat-card stat-card-1km">
+                    <div class="stat-icon">
+                        <i class="fas fa-people-group"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="stat-1km">0</span>
+                        <span class="stat-label">1 KM Participants</span>
+                    </div>
+                </div>
+                <div class="stat-card stat-card-5km">
+                    <div class="stat-icon">
+                        <i class="fas fa-person-running"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="stat-5km">0</span>
+                        <span class="stat-label">5 KM Participants</span>
+                    </div>
+                </div>
+                <div class="stat-card stat-card-10km">
+                    <div class="stat-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="stat-10km">0</span>
+                        <span class="stat-label">10 KM Participants</span>
+                    </div>
+                </div>
+                <div class="stat-card stat-card-revenue">
+                    <div class="stat-icon">
+                        <i class="fas fa-euro-sign"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="stat-revenue">€0</span>
+                        <span class="stat-label">Total Revenue</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Filters Bar -->
+            <section class="filters-bar">
+                <div class="filter-group filter-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="filter-search" placeholder="Search by name or email...">
+                </div>
+                <div class="filter-group">
+                    <select id="filter-distance">
+                        <option value="">All Distances</option>
+                        <option value="1km">1 KM</option>
+                        <option value="5km">5 KM</option>
+                        <option value="10km">10 KM</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <select id="filter-tshirt">
+                        <option value="">All T-Shirt Sizes</option>
+                        <option value="XS">XS</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                    </select>
+                </div>
+                <button class="dash-btn dash-btn-accent" id="export-csv-btn">
+                    <i class="fas fa-download"></i>
+                    <span>Export CSV</span>
+                </button>
+            </section>
+
+            <!-- Participants Table -->
+            <section class="table-section">
+                <div class="table-wrapper">
+                    <table class="participants-table" id="participants-table">
+                        <thead>
+                            <tr>
+                                <th class="sortable" data-sort="index">#</th>
+                                <th class="sortable" data-sort="name">Name <i class="fas fa-sort"></i></th>
+                                <th class="sortable" data-sort="email">Email <i class="fas fa-sort"></i></th>
+                                <th class="sortable" data-sort="phone">Phone <i class="fas fa-sort"></i></th>
+                                <th class="sortable" data-sort="distance">Distance <i class="fas fa-sort"></i></th>
+                                <th class="sortable" data-sort="tshirtSize">T-Shirt <i class="fas fa-sort"></i></th>
+                                <th>Emergency Contact</th>
+                                <th class="sortable" data-sort="registrationDate">Registered <i class="fas fa-sort"></i></th>
+                                <th class="sortable" data-sort="language">Lang <i class="fas fa-sort"></i></th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                            <!-- Rows populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Empty State -->
+                <div class="empty-state" id="empty-state" style="display: none;">
+                    <i class="fas fa-inbox"></i>
+                    <h3>No registrations yet</h3>
+                    <p>Registrations will appear here once participants sign up through the website.</p>
+                </div>
+
+                <!-- No Results State -->
+                <div class="empty-state" id="no-results-state" style="display: none;">
+                    <i class="fas fa-search"></i>
+                    <h3>No matching results</h3>
+                    <p>Try adjusting your search or filter criteria.</p>
+                </div>
+            </section>
+
+            <!-- Table Footer Info -->
+            <div class="table-footer">
+                <span id="showing-count">Showing 0 of 0 registrations</span>
+            </div>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="dash-footer">
+            <p>&copy; 2026 Limassol Charity Run — Admin Dashboard</p>
+        </footer>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

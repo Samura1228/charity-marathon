@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Limassol Charity Run — October 11, 2026</title>
+    <meta name="description" content="Join 500 runners on a scenic charity run through Limassol, Cyprus to build an accessible sports playground. October 11, 2026.">
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Limassol Charity Run — October 11, 2026">
+    <meta property="og:description" content="Join 500 runners on a scenic charity run through Limassol, Cyprus to build an accessible sports playground.">
+    <meta property="og:url" content="https://limassolcharityrun.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Limassol Charity Run — October 11, 2026">
+    <meta name="twitter:description" content="Join 500 runners on a scenic charity run through Limassol, Cyprus to build an accessible sports playground.">
+    <!-- Favicon (emoji fallback) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏃</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <i class="fas fa-running"></i>
+                <span>LIMASSOL CHARITY RUN</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#about" class="nav-link">
+                    <span class="lang-en">About</span>
+                    <span class="lang-ru">О нас</span>
+                </a></li>
+                <li><a href="#distances" class="nav-link">
+                    <span class="lang-en">Distances</span>
+                    <span class="lang-ru">Дистанции</span>
+                </a></li>
+                <li><a href="#why" class="nav-link">
+                    <span class="lang-en">Why Join</span>
+                    <span class="lang-ru">Почему мы</span>
+                </a></li>
+                <li><a href="#partners" class="nav-link">
+                    <span class="lang-en">Partners</span>
+                    <span class="lang-ru">Партнёры</span>
+                </a></li>
+                <li><a href="#register" class="nav-link nav-link-cta">
+                    <span class="lang-en">Register</span>
+                    <span class="lang-ru">Регистрация</span>
+                </a></li>
+            </ul>
+            <button class="lang-toggle" id="lang-toggle">EN</button>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section class="hero" id="hero">
+        <div class="hero-particles">
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+            <div class="particle particle-4"></div>
+            <div class="particle particle-5"></div>
+            <div class="particle particle-6"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-heart-pulse"></i>
+                <span class="lang-en">Charity Event</span>
+                <span class="lang-ru">Благотворительное мероприятие</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="lang-en">RUN FOR A CAUSE</span>
+                <span class="lang-ru">БЕЖИМ РАДИ ЦЕЛИ</span>
+            </h1>
+            <p class="hero-subtitle">
+                <span class="lang-en">October 11, 2026 • Limassol, Cyprus</span>
+                <span class="lang-ru">11 октября 2026 • Лимассол, Кипр</span>
+            </p>
+            <p class="hero-tagline">
+                <span class="lang-en">Join 500 runners on a scenic charity run through Limassol to build an accessible sports playground</span>
+                <span class="lang-ru">Присоединяйтесь к 500 бегунам на живописном благотворительном забеге по Лимассолу для строительства доступной спортивной площадки</span>
+            </p>
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">000</span>
+                    <span class="countdown-label">
+                        <span class="lang-en">Days</span>
+                        <span class="lang-ru">Дней</span>
+                    </span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-label">
+                        <span class="lang-en">Hours</span>
+                        <span class="lang-ru">Часов</span>
+                    </span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label">
+                        <span class="lang-en">Minutes</span>
+                        <span class="lang-ru">Минут</span>
+                    </span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-label">
+                        <span class="lang-en">Seconds</span>
+                        <span class="lang-ru">Секунд</span>
+                    </span>
+                </div>
+            </div>
+            <a href="#register" class="btn btn-primary btn-hero">
+                <span class="lang-en">Register Now</span>
+                <span class="lang-ru">Зарегистрироваться</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        <div class="hero-scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- ========== ABOUT / MISSION SECTION ========== -->
+    <section class="section section-light" id="about">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">
+                    <span class="lang-en">Our Mission</span>
+                    <span class="lang-ru">Наша миссия</span>
+                </span>
+                <h2 class="section-title">
+                    <span class="lang-en">We Don't Just Run — We Run With Purpose</span>
+                    <span class="lang-ru">Мы не просто бежим — мы бежим с целью</span>
+                </h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-text fade-in">
+                    <div class="about-icon">
+                        <i class="fas fa-wheelchair"></i>
+                    </div>
+                    <p class="lang-en">
+                        People with limited mobility often lack access to proper sports facilities. In Limassol, there is a growing need for inclusive spaces where everyone — regardless of physical ability — can enjoy sports and recreation.
+                    </p>
+                    <p class="lang-ru">
+                        Люди с ограниченной подвижностью часто не имеют доступа к надлежащим спортивным объектам. В Лимассоле растёт потребность в инклюзивных пространствах, где каждый — независимо от физических возможностей — может заниматься спортом и отдыхать.
+                    </p>
+                    <p class="lang-en">
+                        The Limassol Charity Run is more than a race — it's a movement. Every euro raised goes directly toward building an <strong>accessible sports playground</strong> designed for people with limited mobility. Our goal is to raise <strong>€45,000</strong> to make this dream a reality.
+                    </p>
+                    <p class="lang-ru">
+                        Limassol Charity Run — это больше, чем забег — это движение. Каждый собранный евро идёт непосредственно на строительство <strong>доступной спортивной площадки</strong>, предназначенной для маломобильных людей. Наша цель — собрать <strong>€45,000</strong>, чтобы воплотить эту мечту в реальность.
+                    </p>
+                    <p class="lang-en">
+                        By running with us, you're not just crossing a finish line — you're helping build a future where sport is truly for everyone.
+                    </p>
+                    <p class="lang-ru">
+                        Бегая с нами, вы не просто пересекаете финишную черту — вы помогаете строить будущее, где спорт действительно для всех.
+                    </p>
+                </div>
+                <div class="about-progress fade-in">
+                    <div class="progress-card">
+                        <div class="progress-card-header">
+                            <i class="fas fa-bullseye"></i>
+                            <h3>
+                                <span class="lang-en">Fundraising Progress</span>
+                                <span class="lang-ru">Прогресс сбора средств</span>
+                            </h3>
+                        </div>
+                        <div class="progress-amount-row">
+                            <span class="progress-current" id="progress-amount">€12,500</span>
+                            <span class="progress-goal">
+                                <span class="lang-en">of €45,000</span>
+                                <span class="lang-ru">из €45,000</span>
+                            </span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" id="progress-bar" style="width: 28%;">
+                                <span class="progress-percent">28%</span>
+                            </div>
+                        </div>
+                        <div class="progress-stats">
+                            <div class="progress-stat">
+                                <span class="progress-stat-number">250+</span>
+                                <span class="progress-stat-label">
+                                    <span class="lang-en">Donors</span>
+                                    <span class="lang-ru">Доноров</span>
+                                </span>
+                            </div>
+                            <div class="progress-stat">
+                                <span class="progress-stat-number">€50</span>
+                                <span class="progress-stat-label">
+                                    <span class="lang-en">Per Runner</span>
+                                    <span class="lang-ru">За бегуна</span>
+                                </span>
+                            </div>
+                            <div class="progress-stat">
+                                <span class="progress-stat-number">500</span>
+                                <span class="progress-stat-label">
+                                    <span class="lang-en">Target Runners</span>
+                                    <span class="lang-ru">Целевых бегунов</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== DISTANCES SECTION ========== -->
+    <section class="section section-dark" id="distances">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag section-tag-light">
+                    <span class="lang-en">Race Categories</span>
+                    <span class="lang-ru">Категории забега</span>
+                </span>
+                <h2 class="section-title section-title-light">
+                    <span class="lang-en">Choose Your Distance</span>
+                    <span class="lang-ru">Выберите дистанцию</span>
+                </h2>
+            </div>
+            <div class="distances-grid">
+                <!-- 1 KM Card -->
+                <div class="distance-card fade-in">
+                    <div class="distance-card-badge">
+                        <span class="lang-en">Family</span>
+                        <span class="lang-ru">Семейный</span>
+                    </div>
+                    <div class="distance-card-icon">
+                        <i class="fas fa-people-group"></i>
+                    </div>
+                    <div class="distance-card-number">1 <span>KM</span></div>
+                    <h3 class="distance-card-title">
+                        <span class="lang-en">Family Fun Run</span>
+                        <span class="lang-ru">Семейный забег</span>
+                    </h3>
+                    <p class="distance-card-desc">
+                        <span class="lang-en">For families and kids. Enjoy the scenery at your own pace.</span>
+                        <span class="lang-ru">Для семей и детей. Наслаждайтесь пейзажами в своём темпе.</span>
+                    </p>
+                    <div class="distance-card-price">€50</div>
+                    <a href="#register" class="btn btn-accent">
+                        <span class="lang-en">Register</span>
+                        <span class="lang-ru">Регистрация</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <!-- 5 KM Card -->
+                <div class="distance-card distance-card-featured fade-in">
+                    <div class="distance-card-badge">
+                        <span class="lang-en">Popular</span>
+                        <span class="lang-ru">Популярный</span>
+                    </div>
+                    <div class="distance-card-icon">
+                        <i class="fas fa-person-running"></i>
+                    </div>
+                    <div class="distance-card-number">5 <span>KM</span></div>
+                    <h3 class="distance-card-title">
+                        <span class="lang-en">Challenge Run</span>
+                        <span class="lang-ru">Забег на 5 км</span>
+                    </h3>
+                    <p class="distance-card-desc">
+                        <span class="lang-en">For beginners and intermediate runners. A scenic route through beautiful landscapes.</span>
+                        <span class="lang-ru">Для начинающих и бегунов среднего уровня. Живописный маршрут через красивые пейзажи.</span>
+                    </p>
+                    <div class="distance-card-price">€50</div>
+                    <a href="#register" class="btn btn-primary">
+                        <span class="lang-en">Register</span>
+                        <span class="lang-ru">Регистрация</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <!-- 10 KM Card -->
+                <div class="distance-card fade-in">
+                    <div class="distance-card-badge">
+                        <span class="lang-en">Advanced</span>
+                        <span class="lang-ru">Продвинутый</span>
+                    </div>
+                    <div class="distance-card-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="distance-card-number">10 <span>KM</span></div>
+                    <h3 class="distance-card-title">
+                        <span class="lang-en">Endurance Run</span>
+                        <span class="lang-ru">Забег на 10 км</span>
+                    </h3>
+                    <p class="distance-card-desc">
+                        <span class="lang-en">For experienced runners. The full scenic experience with diverse terrain.</span>
+                        <span class="lang-ru">Для опытных бегунов. Полный живописный маршрут с разнообразным рельефом.</span>
+                    </p>
+                    <div class="distance-card-price">€50</div>
+                    <a href="#register" class="btn btn-accent">
+                        <span class="lang-en">Register</span>
+                        <span class="lang-ru">Регистрация</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== WHY PARTICIPATE SECTION ========== -->
+    <section class="section section-light" id="why">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">
+                    <span class="lang-en">Why Join Us</span>
+                    <span class="lang-ru">Почему мы</span>
+                </span>
+                <h2 class="section-title">
+                    <span class="lang-en">Why This Marathon Is Different</span>
+                    <span class="lang-ru">Почему этот марафон особенный</span>
+                </h2>
+            </div>
+            <div class="why-grid">
+                <div class="why-card fade-in">
+                    <div class="why-card-icon">
+                        <i class="fas fa-mountain-sun"></i>
+                    </div>
+                    <h3>
+                        <span class="lang-en">Scenic Route</span>
+                        <span class="lang-ru">Живописный маршрут</span>
+                    </h3>
+                    <p>
+                        <span class="lang-en">Not boring circles, but a living trail through diverse locations with stunning views — the run itself is an experience</span>
+                        <span class="lang-ru">Не скучные круги, а живая трасса с разными локациями и видами — процесс сам по себе интересен</span>
+                    </p>
+                </div>
+                <div class="why-card fade-in">
+                    <div class="why-card-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>
+                        <span class="lang-en">Inclusive For All</span>
+                        <span class="lang-ru">Доступно для всех</span>
+                    </h3>
+                    <p>
+                        <span class="lang-en">Everyone can participate: kids, families, beginners — distances for every level</span>
+                        <span class="lang-ru">Участвовать могут все: дети, семьи и начинающие бегуны — дистанции для любого уровня</span>
+                    </p>
+                </div>
+                <div class="why-card fade-in">
+                    <div class="why-card-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>
+                        <span class="lang-en">Community</span>
+                        <span class="lang-ru">Сообщество</span>
+                    </h3>
+                    <p>
+                        <span class="lang-en">Not a one-time event, but the beginning of a community with shared goals and values</span>
+                        <span class="lang-ru">Это не разовое событие, а начало сообщества людей с общей целью и ценностями</span>
+                    </p>
+                </div>
+            </div>
+            <div class="why-quote fade-in">
+                <blockquote>
+                    <i class="fas fa-quote-left"></i>
+                    <p>
+                        <span class="lang-en">A person comes not just to run, but to gain emotions, meaning, and experience — and will want to come back</span>
+                        <span class="lang-ru">Человек приходит не просто пробежать, а получить эмоции, смысл и опыт — и захочет вернуться снова</span>
+                    </p>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PARTNERS SECTION ========== -->
+    <section class="section section-gray" id="partners">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">
+                    <span class="lang-en">Supporters</span>
+                    <span class="lang-ru">Поддержка</span>
+                </span>
+                <h2 class="section-title">
+                    <span class="lang-en">Our Partners</span>
+                    <span class="lang-ru">Наши партнёры</span>
+                </h2>
+            </div>
+            <div class="partners-categories">
+                <!-- Government -->
+                <div class="partner-category fade-in">
+                    <h3>
+                        <i class="fas fa-landmark"></i>
+                        <span class="lang-en">Government & Organizations</span>
+                        <span class="lang-ru">Государство и организации</span>
+                    </h3>
+                    <div class="partner-pills">
+                        <span class="partner-pill partner-pill-gov">
+                            <span class="lang-en">Limassol Municipality</span>
+                            <span class="lang-ru">Муниципалитет Лимассола</span>
+                        </span>
+                        <span class="partner-pill partner-pill-gov">
+                            <span class="lang-en">Cyprus Olympic Committee</span>
+                            <span class="lang-ru">Олимпийский комитет Кипра</span>
+                        </span>
+                        <span class="partner-pill partner-pill-gov">
+                            <span class="lang-en">Research & Innovation Foundation</span>
+                            <span class="lang-ru">Фонд исследований и инноваций</span>
+                        </span>
+                        <span class="partner-pill partner-pill-gov">
+                            <span class="lang-en">Cyprus Athletic Tourism</span>
+                            <span class="lang-ru">Спортивный туризм Кипра</span>
+                        </span>
+                    </div>
+                </div>
+                <!-- Main Sponsors -->
+                <div class="partner-category fade-in">
+                    <h3>
+                        <i class="fas fa-star"></i>
+                        <span class="lang-en">Main Sponsors</span>
+                        <span class="lang-ru">Главные спонсоры</span>
+                    </h3>
+                    <div class="partner-pills">
+                        <span class="partner-pill partner-pill-sponsor">XM</span>
+                        <span class="partner-pill partner-pill-sponsor">Radisson Blu</span>
+                        <span class="partner-pill partner-pill-sponsor">Cablenet</span>
+                        <span class="partner-pill partner-pill-sponsor">EKO Cyprus</span>
+                        <span class="partner-pill partner-pill-sponsor">RoboMarkets</span>
+                    </div>
+                </div>
+                <!-- Sports Partners -->
+                <div class="partner-category fade-in">
+                    <h3>
+                        <i class="fas fa-medal"></i>
+                        <span class="lang-en">Sports Partners</span>
+                        <span class="lang-ru">Спорт организации</span>
+                    </h3>
+                    <div class="partner-pills">
+                        <span class="partner-pill partner-pill-sport">Garmin</span>
+                        <span class="partner-pill partner-pill-sport">361° Cyprus</span>
+                        <span class="partner-pill partner-pill-sport">Ronhill</span>
+                        <span class="partner-pill partner-pill-sport">Coros</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== EVENT DETAILS SECTION ========== -->
+    <section class="section section-dark" id="details">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag section-tag-light">
+                    <span class="lang-en">Key Info</span>
+                    <span class="lang-ru">Ключевая информация</span>
+                </span>
+                <h2 class="section-title section-title-light">
+                    <span class="lang-en">Event Details</span>
+                    <span class="lang-ru">Детали мероприятия</span>
+                </h2>
+            </div>
+            <div class="details-grid">
+                <div class="detail-card fade-in">
+                    <div class="detail-icon">
+                        <i class="fas fa-calendar"></i>
+                    </div>
+                    <h4>
+                        <span class="lang-en">Date</span>
+                        <span class="lang-ru">Дата</span>
+                    </h4>
+                    <p>
+                        <span class="lang-en">October 11, 2026</span>
+                        <span class="lang-ru">11 октября 2026</span>
+                    </p>
+                </div>
+                <div class="detail-card fade-in">
+                    <div class="detail-icon">
+                        <i class="fas fa-location-dot"></i>
+                    </div>
+                    <h4>
+                        <span class="lang-en">Location</span>
+                        <span class="lang-ru">Место</span>
+                    </h4>
+                    <p>
+                        <span class="lang-en">Limassol, Cyprus</span>
+                        <span class="lang-ru">Лимассол, Кипр</span>
+                    </p>
+                </div>
+                <div class="detail-card fade-in">
+                    <div class="detail-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4>
+                        <span class="lang-en">Participants</span>
+                        <span class="lang-ru">Участники</span>
+                    </h4>
+                    <p>400–500</p>
+                </div>
+                <div class="detail-card fade-in">
+                    <div class="detail-icon">
+                        <i class="fas fa-euro-sign"></i>
+                    </div>
+                    <h4>
+                        <span class="lang-en">Registration Fee</span>
+                        <span class="lang-ru">Регистрационный взнос</span>
+                    </h4>
+                    <p>€50</p>
+                </div>
+                <div class="detail-card fade-in">
+                    <div class="detail-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h4>
+                        <span class="lang-en">Fundraising Goal</span>
+                        <span class="lang-ru">Цель сбора</span>
+                    </h4>
+                    <p>€45,000</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== REGISTRATION FORM SECTION ========== -->
+    <section class="section section-light" id="register">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">
+                    <span class="lang-en">Sign Up</span>
+                    <span class="lang-ru">Запись</span>
+                </span>
+                <h2 class="section-title">
+                    <span class="lang-en">Register Now</span>
+                    <span class="lang-ru">Зарегистрируйтесь сейчас</span>
+                </h2>
+            </div>
+            <div class="form-wrapper fade-in">
+                <form id="registration-form" novalidate>
+                    <div class="form-grid">
+                        <!-- First Name -->
+                        <div class="form-group">
+                            <label for="firstName">
+                                <span class="lang-en">First Name</span>
+                                <span class="lang-ru">Имя</span>
+                                <span class="required">*</span>
+                            </label>
+                            <input type="text" id="firstName" name="firstName" required
+                                placeholder="John">
+                        </div>
+                        <!-- Last Name -->
+                        <div class="form-group">
+                            <label for="lastName">
+                                <span class="lang-en">Last Name</span>
+                                <span class="lang-ru">Фамилия</span>
+                                <span class="required">*</span>
+                            </label>
+                            <input type="text" id="lastName" name="lastName" required
+                                placeholder="Doe">
+                        </div>
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="email">
+                                <span class="lang-en">Email</span>
+                                <span class="lang-ru">Электронная почта</span>
+                                <span class="required">*</span>
+                            </label>
+                            <input type="email" id="email" name="email" required
+                                placeholder="john@example.com">
+                        </div>
+                        <!-- Phone -->
+                        <div class="form-group">
+                            <label for="phone">
+                                <span class="lang-en">Phone</span>
+                                <span class="lang-ru">Телефон</span>
+                                <span class="required">*</span>
+                            </label>
+                            <input type="tel" id="phone" name="phone" required
+                                placeholder="+357 99 123456">
+                        </div>
+                        <!-- Distance -->
+                        <div class="form-group">
+                            <label for="distance">
+                                <span class="lang-en">Distance</span>
+                                <span class="lang-ru">Дистанция</span>
+                                <span class="required">*</span>
+                            </label>
+                            <select id="distance" name="distance" required>
+                                <option value="" disabled selected>
+                                    --
+                                </option>
+                                <option value="1km">1 KM</option>
+                                <option value="5km">5 KM</option>
+                                <option value="10km">10 KM</option>
+                            </select>
+                        </div>
+                        <!-- T-shirt Size -->
+                        <div class="form-group">
+                            <label for="tshirtSize">
+                                <span class="lang-en">T-shirt Size</span>
+                                <span class="lang-ru">Размер футболки</span>
+                                <span class="required">*</span>
+                            </label>
+                            <select id="tshirtSize" name="tshirtSize" required>
+                                <option value="" disabled selected>
+                                    --
+                                </option>
+                                <option value="XS">XS</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                                <option value="XXL">XXL</option>
+                            </select>
+                        </div>
+                        <!-- Emergency Contact Name -->
+                        <div class="form-group">
+                            <label for="emergencyName">
+                                <span class="lang-en">Emergency Contact Name</span>
+                                <span class="lang-ru">Контактное лицо</span>
+                                <span class="required">*</span>
+                            </label>
+                            <input type="text" id="emergencyName" name="emergencyName" required
+                                placeholder="Jane Doe">
+                        </div>
+                        <!-- Emergency Contact Phone -->
+                        <div class="form-group">
+                            <label for="emergencyPhone">
+                                <span class="lang-en">Emergency Contact Phone</span>
+                                <span class="lang-ru">Телефон контактного лица</span>
+                                <span class="required">*</span>
+                            </label>
+                            <input type="tel" id="emergencyPhone" name="emergencyPhone" required
+                                placeholder="+357 99 654321">
+                        </div>
+                    </div>
+                    <!-- Terms -->
+                    <div class="form-group form-group-checkbox">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <span class="checkmark"></span>
+                            <span>
+                                <span class="lang-en">I agree to the terms and conditions</span>
+                                <span class="lang-ru">Я согласен с условиями</span>
+                                <span class="required">*</span>
+                            </span>
+                        </label>
+                    </div>
+                    <!-- Submit -->
+                    <button type="submit" class="btn btn-primary btn-submit">
+                        <span class="lang-en">Complete Registration — €50</span>
+                        <span class="lang-ru">Завершить регистрацию — €50</span>
+                        <i class="fas fa-check-circle"></i>
+                    </button>
+                </form>
+                <!-- Success Message -->
+                <div id="form-success" class="form-success" style="display: none;">
+                    <div class="success-icon">
+                        <i class="fas fa-circle-check"></i>
+                    </div>
+                    <h3>
+                        <span class="lang-en">Registration Successful!</span>
+                        <span class="lang-ru">Регистрация прошла успешно!</span>
+                    </h3>
+                    <p>
+                        <span class="lang-en">Check your email for confirmation. We'll see you at the starting line!</span>
+                        <span class="lang-ru">Проверьте вашу электронную почту для подтверждения. Увидимся на старте!</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FAQ SECTION ========== -->
+    <section class="section section-gray" id="faq">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">
+                    <span class="lang-en">FAQ</span>
+                    <span class="lang-ru">ЧЗВ</span>
+                </span>
+                <h2 class="section-title">
+                    <span class="lang-en">Frequently Asked Questions</span>
+                    <span class="lang-ru">Часто задаваемые вопросы</span>
+                </h2>
+            </div>
+            <div class="faq-list">
+                <!-- FAQ 1 -->
+                <div class="faq-item fade-in">
+                    <button class="faq-question">
+                        <span>
+                            <span class="lang-en">What is included in the registration fee?</span>
+                            <span class="lang-ru">Что входит в стоимость регистрации?</span>
+                        </span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            <span class="lang-en">Your registration includes a race bib, finisher medal, event t-shirt, water bottle, and access to all event facilities including water stations and medical support.</span>
+                            <span class="lang-ru">Регистрация включает номер участника, медаль финишёра, футболку мероприятия, бутылку воды и доступ ко всем объектам мероприятия, включая точки с водой и медицинскую поддержку.</span>
+                        </p>
+                    </div>
+                </div>
+                <!-- FAQ 2 -->
+                <div class="faq-item fade-in">
+                    <button class="faq-question">
+                        <span>
+                            <span class="lang-en">Can children participate?</span>
+                            <span class="lang-ru">Могут ли участвовать дети?</span>
+                        </span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            <span class="lang-en">Yes! The 1 km Family Fun Run is designed for families with children of all ages. Children under 12 must be accompanied by an adult.</span>
+                            <span class="lang-ru">Да! Семейный забег на 1 км предназначен для семей с детьми любого возраста. Дети до 12 лет должны быть в сопровождении взрослого.</span>
+                        </p>
+                    </div>
+                </div>
+                <!-- FAQ 3 -->
+                <div class="faq-item fade-in">
+                    <button class="faq-question">
+                        <span>
+                            <span class="lang-en">Is the route accessible?</span>
+                            <span class="lang-ru">Доступен ли маршрут?</span>
+                        </span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            <span class="lang-en">The 1 km route is fully accessible. The 5 km and 10 km routes include varied terrain. Please contact us for specific accessibility questions.</span>
+                            <span class="lang-ru">Маршрут на 1 км полностью доступен. Маршруты на 5 км и 10 км включают разнообразный рельеф. Свяжитесь с нами по вопросам доступности.</span>
+                        </p>
+                    </div>
+                </div>
+                <!-- FAQ 4 -->
+                <div class="faq-item fade-in">
+                    <button class="faq-question">
+                        <span>
+                            <span class="lang-en">Where does the money go?</span>
+                            <span class="lang-ru">Куда идут деньги?</span>
+                        </span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            <span class="lang-en">100% of the charity portion goes to building an accessible sports playground for people with limited mobility in Limassol.</span>
+                            <span class="lang-ru">100% благотворительной части идёт на строительство доступной спортивной площадки для маломобильных людей в Лимассоле.</span>
+                        </p>
+                    </div>
+                </div>
+                <!-- FAQ 5 -->
+                <div class="faq-item fade-in">
+                    <button class="faq-question">
+                        <span>
+                            <span class="lang-en">What should I bring?</span>
+                            <span class="lang-ru">Что нужно взять с собой?</span>
+                        </span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            <span class="lang-en">Comfortable running shoes, weather-appropriate clothing, and a positive attitude! Water and refreshments will be provided along the route.</span>
+                            <span class="lang-ru">Удобную беговую обувь, одежду по погоде и хорошее настроение! Вода и угощения будут предоставлены на маршруте.</span>
+                        </p>
+                    </div>
+                </div>
+                <!-- FAQ 6 -->
+                <div class="faq-item fade-in">
+                    <button class="faq-question">
+                        <span>
+                            <span class="lang-en">Is there parking available?</span>
+                            <span class="lang-ru">Есть ли парковка?</span>
+                        </span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            <span class="lang-en">Yes, free parking will be available near the start/finish area. Details will be sent to registered participants.</span>
+                            <span class="lang-ru">Да, бесплатная парковка будет доступна рядом со стартовой/финишной зоной. Подробности будут отправлены зарегистрированным участникам.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1 -->
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <i class="fas fa-running"></i>
+                        <span>LIMASSOL CHARITY RUN</span>
+                    </div>
+                    <p class="footer-desc">
+                        <span class="lang-en">A scenic charity run through Limassol, Cyprus to build an accessible sports playground for people with limited mobility.</span>
+                        <span class="lang-ru">Живописный благотворительный забег по Лимассолу, Кипр, для строительства доступной спортивной площадки для маломобильных людей.</span>
+                    </p>
+                    <div class="footer-socials">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>
+                    </div>
+                </div>
+                <!-- Column 2 -->
+                <div class="footer-col">
+                    <h4>
+                        <span class="lang-en">Quick Links</span>
+                        <span class="lang-ru">Быстрые ссылки</span>
+                    </h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">
+                            <span class="lang-en">About</span>
+                            <span class="lang-ru">О нас</span>
+                        </a></li>
+                        <li><a href="#distances">
+                            <span class="lang-en">Distances</span>
+                            <span class="lang-ru">Дистанции</span>
+                        </a></li>
+                        <li><a href="#partners">
+                            <span class="lang-en">Partners</span>
+                            <span class="lang-ru">Партнёры</span>
+                        </a></li>
+                        <li><a href="#register">
+                            <span class="lang-en">Register</span>
+                            <span class="lang-ru">Регистрация</span>
+                        </a></li>
+                        <li><a href="#faq">
+                            <span class="lang-en">FAQ</span>
+                            <span class="lang-ru">ЧЗВ</span>
+                        </a></li>
+                    </ul>
+                </div>
+                <!-- Column 3 -->
+                <div class="footer-col">
+                    <h4>
+                        <span class="lang-en">Contact</span>
+                        <span class="lang-ru">Контакты</span>
+                    </h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@limassolcharityrun.com">info@limassolcharityrun.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-location-dot"></i>
+                            <span>
+                                <span class="lang-en">Limassol, Cyprus</span>
+                                <span class="lang-ru">Лимассол, Кипр</span>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Limassol Charity Run. 
+                    <span class="lang-en">All rights reserved.</span>
+                    <span class="lang-ru">Все права защищены.</span>
+                </p>
+                <p>
+                    <span class="lang-en">Made with ❤️ for a good cause</span>
+                    <span class="lang-ru">Сделано с ❤️ ради доброго дела</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js?v=11"></script>
+</body>
+</html>

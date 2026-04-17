@@ -1,0 +1,14 @@
+{
+  "name": "limassol-charity-run",
+  "version": "1.0.0",
+  "description": "Limassol Charity Run website",
+  "scripts": {
+    "start": "npx serve -s . -l $PORT --no-clipboard"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "serve": "^14.2.0"
+  }
+}
