@@ -649,12 +649,45 @@
                     </div>
                     <!-- Submit -->
                     <button type="submit" class="btn btn-primary btn-submit">
-                        <span class="lang-en">Complete Registration — €50</span>
-                        <span class="lang-ru">Завершить регистрацию — €50</span>
-                        <i class="fas fa-check-circle"></i>
+                        <span class="lang-en">Register & Continue to Payment</span>
+                        <span class="lang-ru">Зарегистрироваться и перейти к оплате</span>
+                        <i class="fas fa-arrow-right"></i>
                     </button>
                 </form>
-                <!-- Success Message -->
+                <!-- Payment Selection (shown after registration) -->
+                <div id="payment-selection" style="display: none;">
+                    <div class="success-icon">
+                        <i class="fas fa-circle-check"></i>
+                    </div>
+                    <h3 style="text-align:center; margin-bottom: 8px;">
+                        <span class="lang-en">Registration Saved!</span>
+                        <span class="lang-ru">Регистрация сохранена!</span>
+                    </h3>
+                    <p style="text-align:center; color:#666; margin-bottom: 32px;">
+                        <span class="lang-en">Choose your payment method to complete registration (€50)</span>
+                        <span class="lang-ru">Выберите способ оплаты для завершения регистрации (€50)</span>
+                    </p>
+                    <div style="display: flex; flex-direction: column; gap: 16px; max-width: 400px; margin: 0 auto;">
+                        <!-- PayPal Button -->
+                        <a href="https://www.paypal.com/ncp/payment/UMB2GPS2J2332" target="_blank" class="btn" style="background: #0070ba; color: white; justify-content: center; font-size: 1.05rem; padding: 18px 36px; border-radius: 50px; text-decoration: none; box-shadow: 0 4px 15px rgba(0,112,186,0.3);">
+                            <i class="fab fa-paypal"></i>
+                            <span class="lang-en">Pay with PayPal — €50</span>
+                            <span class="lang-ru">Оплатить через PayPal — €50</span>
+                        </a>
+                        <!-- Stripe Button (coming soon) -->
+                        <button class="btn" id="stripe-pay-btn" disabled style="background: #635bff; color: white; justify-content: center; font-size: 1.05rem; padding: 18px 36px; border-radius: 50px; opacity: 0.5; cursor: not-allowed; box-shadow: 0 4px 15px rgba(99,91,255,0.3);">
+                            <i class="fab fa-stripe-s"></i>
+                            <span class="lang-en">Pay with Card — €50 (Coming Soon)</span>
+                            <span class="lang-ru">Оплатить картой — €50 (Скоро)</span>
+                        </button>
+                    </div>
+                    <p style="text-align:center; color:#999; margin-top: 24px; font-size: 0.85rem;">
+                        <i class="fas fa-lock"></i>
+                        <span class="lang-en"> Secure payment. Your registration is saved even if you pay later.</span>
+                        <span class="lang-ru"> Безопасная оплата. Ваша регистрация сохранена, даже если вы оплатите позже.</span>
+                    </p>
+                </div>
+                <!-- Final Success (shown after returning from payment) -->
                 <div id="form-success" class="form-success" style="display: none;">
                     <div class="success-icon">
                         <i class="fas fa-circle-check"></i>
@@ -869,6 +902,6 @@
         </div>
     </footer>
 
-    <script src="script.js?v=11"></script>
+    <script src="script.js?v=12"></script>
 </body>
 </html>

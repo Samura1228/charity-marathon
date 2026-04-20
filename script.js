@@ -319,10 +319,11 @@
                     throw new Error('Registration failed: ' + response.status);
                 }
 
-                // Success — show success message
+                // Success — show payment selection
                 registrationForm.style.display = 'none';
-                if (formSuccess) {
-                    formSuccess.style.display = 'block';
+                var paymentSelection = document.getElementById('payment-selection');
+                if (paymentSelection) {
+                    paymentSelection.style.display = 'block';
                 }
             } catch (error) {
                 console.error('Registration error:', error);
