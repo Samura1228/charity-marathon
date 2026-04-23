@@ -350,7 +350,7 @@
             entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
                     progressBar.style.transition = 'width 2s ease';
-                    progressBar.style.width = '28%';
+                    progressBar.style.width = '0%';
                     progressObserver.unobserve(entry.target);
                 }
             });
