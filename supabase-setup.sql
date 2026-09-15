@@ -1,16 +1,26 @@
 -- Run this SQL in Supabase SQL Editor (left sidebar → SQL Editor → New query)
--- This creates the registrations table and security policies
 
+-- ============================================================
+-- A. ALREADY HAVE THE TABLE?  Run just this block.
+--    The sign-up form now asks "Where you heard about us" and
+--    stores it in heard_from. Until this column exists the form
+--    still saves the sign-up but drops that one answer.
+-- ============================================================
+ALTER TABLE registrations ADD COLUMN IF NOT EXISTS heard_from TEXT;
+
+
+-- ============================================================
+-- B. FRESH INSTALL?  Run this block instead.
+--    Creates the registrations table and security policies.
+-- ============================================================
 CREATE TABLE registrations (
   id BIGSERIAL PRIMARY KEY,
   first_name TEXT,
   last_name TEXT,
   email TEXT,
-  phone TEXT,
-  distance TEXT,
-  tshirt_size TEXT,
-  emergency_name TEXT,
-  emergency_phone TEXT,
+  phone TEXT,               -- optional
+  distance TEXT,            -- '5km' or '1km-family'
+  heard_from TEXT,          -- "Where you heard about us"
   registration_date TEXT,
   language TEXT DEFAULT 'EN',
   created_at TIMESTAMPTZ DEFAULT NOW()
@@ -19,7 +29,7 @@ CREATE TABLE registrations (
 -- Enable Row Level Security
 ALTER TABLE registrations ENABLE ROW LEVEL SECURITY;
 
--- Allow anyone to INSERT (for the registration form)
+-- Allow anyone to INSERT (for the sign-up form)
 CREATE POLICY "Allow public inserts" ON registrations
   FOR INSERT TO anon
   WITH CHECK (true);

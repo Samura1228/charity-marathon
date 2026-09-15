@@ -64,12 +64,11 @@
             </div>
         </header>
 
-        <!-- Demo Data Banner -->
+        <!-- Connection Error Banner -->
         <div class="demo-banner" id="demo-banner" style="display: none;">
             <i class="fas fa-info-circle"></i>
             <span>
-                <strong>Demo Mode:</strong> Google Sheet is not connected. Showing sample data.
-                See <a href="SETUP_GUIDE.md" target="_blank">Setup Guide</a> to connect your Google Sheet.
+                <strong>Couldn't load registrations.</strong> The Supabase request failed — check your connection and press Refresh Data.
             </span>
             <button class="demo-banner-close" id="demo-banner-close">
                 <i class="fas fa-times"></i>
@@ -96,40 +95,22 @@
                         <span class="stat-label">Total Registrations</span>
                     </div>
                 </div>
-                <div class="stat-card stat-card-1km">
-                    <div class="stat-icon">
-                        <i class="fas fa-people-group"></i>
-                    </div>
-                    <div class="stat-info">
-                        <span class="stat-number" id="stat-1km">0</span>
-                        <span class="stat-label">1 KM Participants</span>
-                    </div>
-                </div>
                 <div class="stat-card stat-card-5km">
                     <div class="stat-icon">
                         <i class="fas fa-person-running"></i>
                     </div>
                     <div class="stat-info">
                         <span class="stat-number" id="stat-5km">0</span>
-                        <span class="stat-label">5 KM Participants</span>
+                        <span class="stat-label">5 km</span>
                     </div>
                 </div>
-                <div class="stat-card stat-card-10km">
+                <div class="stat-card stat-card-1km">
                     <div class="stat-icon">
-                        <i class="fas fa-trophy"></i>
+                        <i class="fas fa-people-group"></i>
                     </div>
                     <div class="stat-info">
-                        <span class="stat-number" id="stat-10km">0</span>
-                        <span class="stat-label">10 KM Participants</span>
-                    </div>
-                </div>
-                <div class="stat-card stat-card-revenue">
-                    <div class="stat-icon">
-                        <i class="fas fa-euro-sign"></i>
-                    </div>
-                    <div class="stat-info">
-                        <span class="stat-number" id="stat-revenue">€0</span>
-                        <span class="stat-label">Total Revenue</span>
+                        <span class="stat-number" id="stat-1km">0</span>
+                        <span class="stat-label">1 km family loop</span>
                     </div>
                 </div>
             </section>
@@ -142,21 +123,9 @@
                 </div>
                 <div class="filter-group">
                     <select id="filter-distance">
-                        <option value="">All Distances</option>
-                        <option value="1km">1 KM</option>
-                        <option value="5km">5 KM</option>
-                        <option value="10km">10 KM</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <select id="filter-tshirt">
-                        <option value="">All T-Shirt Sizes</option>
-                        <option value="XS">XS</option>
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">XL</option>
-                        <option value="XXL">XXL</option>
+                        <option value="">All distances</option>
+                        <option value="5km">5 km</option>
+                        <option value="1km-family">1 km family loop</option>
                     </select>
                 </div>
                 <button class="dash-btn dash-btn-accent" id="export-csv-btn">
@@ -176,8 +145,7 @@
                                 <th class="sortable" data-sort="email">Email <i class="fas fa-sort"></i></th>
                                 <th class="sortable" data-sort="phone">Phone <i class="fas fa-sort"></i></th>
                                 <th class="sortable" data-sort="distance">Distance <i class="fas fa-sort"></i></th>
-                                <th class="sortable" data-sort="tshirtSize">T-Shirt <i class="fas fa-sort"></i></th>
-                                <th>Emergency Contact</th>
+                                <th class="sortable" data-sort="heardFrom">Heard about us <i class="fas fa-sort"></i></th>
                                 <th class="sortable" data-sort="registrationDate">Registered <i class="fas fa-sort"></i></th>
                                 <th class="sortable" data-sort="language">Lang <i class="fas fa-sort"></i></th>
                             </tr>

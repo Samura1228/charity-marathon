@@ -43,7 +43,6 @@
     const noResultsState = document.getElementById('no-results-state');
     const filterSearch = document.getElementById('filter-search');
     const filterDistance = document.getElementById('filter-distance');
-    const filterTshirt = document.getElementById('filter-tshirt');
     const exportCsvBtn = document.getElementById('export-csv-btn');
     const showingCount = document.getElementById('showing-count');
 
@@ -51,8 +50,6 @@
     const statTotal = document.getElementById('stat-total');
     const stat1km = document.getElementById('stat-1km');
     const stat5km = document.getElementById('stat-5km');
-    const stat10km = document.getElementById('stat-10km');
-    const statRevenue = document.getElementById('stat-revenue');
 
     // ========================================
     // 1. LOGIN SYSTEM
@@ -154,9 +151,7 @@
                     email: row.email || '',
                     phone: row.phone || '',
                     distance: row.distance || '',
-                    tshirtSize: row.tshirt_size || '',
-                    emergencyName: row.emergency_name || '',
-                    emergencyPhone: row.emergency_phone || '',
+                    heardFrom: row.heard_from || '',
                     registrationDate: row.registration_date || row.created_at || '',
                     language: row.language || 'EN'
                 };
@@ -245,7 +240,6 @@
     function applyFiltersAndRender() {
         var searchTerm = (filterSearch.value || '').toLowerCase().trim();
         var distanceFilter = filterDistance.value;
-        var tshirtFilter = filterTshirt.value;
 
         filteredData = allData.filter(function (row) {
             // Search filter (name or email)
@@ -262,13 +256,7 @@
                 matchesDistance = (row.distance || '') === distanceFilter;
             }
 
-            // T-shirt filter
-            var matchesTshirt = true;
-            if (tshirtFilter) {
-                matchesTshirt = (row.tshirtSize || '') === tshirtFilter;
-            }
-
-            return matchesSearch && matchesDistance && matchesTshirt;
+            return matchesSearch && matchesDistance;
         });
 
         // Sort
@@ -301,9 +289,9 @@
                     valA = parseDistanceKm(a.distance);
                     valB = parseDistanceKm(b.distance);
                     break;
-                case 'tshirtSize':
-                    valA = tshirtSizeOrder(a.tshirtSize);
-                    valB = tshirtSizeOrder(b.tshirtSize);
+                case 'heardFrom':
+                    valA = (a.heardFrom || '').toLowerCase();
+                    valB = (b.heardFrom || '').toLowerCase();
                     break;
                 case 'registrationDate':
                     valA = a.registrationDate || '';
@@ -331,9 +319,10 @@
         return match ? parseInt(match[1], 10) : 0;
     }
 
-    function tshirtSizeOrder(size) {
-        var order = { 'XS': 1, 'S': 2, 'M': 3, 'L': 4, 'XL': 5, 'XXL': 6 };
-        return order[size] || 0;
+    function formatDistance(distance) {
+        if (distance === '5km') return '5 km';
+        if (distance === '1km-family') return '1 km family loop';
+        return distance || 'N/A';
     }
 
     // ========================================
@@ -344,22 +333,16 @@
         var total = filteredData.length;
         var count1km = 0;
         var count5km = 0;
-        var count10km = 0;
 
         filteredData.forEach(function (row) {
             var km = parseDistanceKm(row.distance);
             if (km === 1) count1km++;
             else if (km === 5) count5km++;
-            else if (km === 10) count10km++;
         });
-
-        var revenue = total * 50;
 
         animateNumber(statTotal, total);
         animateNumber(stat1km, count1km);
         animateNumber(stat5km, count5km);
-        animateNumber(stat10km, count10km);
-        statRevenue.textContent = '€' + revenue.toLocaleString();
     }
 
     function animateNumber(element, target) {
@@ -461,33 +444,14 @@
             var km = parseDistanceKm(row.distance);
             if (km === 1) distanceBadge.classList.add('distance-badge-1km');
             else if (km === 5) distanceBadge.classList.add('distance-badge-5km');
-            else if (km === 10) distanceBadge.classList.add('distance-badge-10km');
-            distanceBadge.textContent = row.distance || 'N/A';
+            distanceBadge.textContent = formatDistance(row.distance);
             tdDistance.appendChild(distanceBadge);
             tr.appendChild(tdDistance);
 
-            // T-Shirt Size
-            var tdTshirt = document.createElement('td');
-            var tshirtBadge = document.createElement('span');
-            tshirtBadge.className = 'tshirt-badge';
-            tshirtBadge.textContent = row.tshirtSize || 'N/A';
-            tdTshirt.appendChild(tshirtBadge);
-            tr.appendChild(tdTshirt);
-
-            // Emergency Contact
-            var tdEmergency = document.createElement('td');
-            var emergencyDiv = document.createElement('div');
-            emergencyDiv.className = 'emergency-info';
-            var emergencyNameSpan = document.createElement('div');
-            emergencyNameSpan.className = 'emergency-name';
-            emergencyNameSpan.textContent = row.emergencyName || 'N/A';
-            var emergencyPhoneSpan = document.createElement('div');
-            emergencyPhoneSpan.className = 'emergency-phone';
-            emergencyPhoneSpan.textContent = row.emergencyPhone || '';
-            emergencyDiv.appendChild(emergencyNameSpan);
-            emergencyDiv.appendChild(emergencyPhoneSpan);
-            tdEmergency.appendChild(emergencyDiv);
-            tr.appendChild(tdEmergency);
+            // Where they heard about us
+            var tdHeard = document.createElement('td');
+            tdHeard.textContent = row.heardFrom || '';
+            tr.appendChild(tdHeard);
 
             // Registration Date
             var tdDate = document.createElement('td');
@@ -591,12 +555,6 @@
         });
     }
 
-    if (filterTshirt) {
-        filterTshirt.addEventListener('change', function () {
-            applyFiltersAndRender();
-        });
-    }
-
     // ========================================
     // 9. CSV EXPORT
     // ========================================
@@ -613,19 +571,16 @@
             return;
         }
 
-        var headers = ['First Name', 'Last Name', 'Email', 'Phone', 'Distance', 'T-Shirt Size', 'Emergency Name', 'Emergency Phone', 'Registration Date', 'Language'];
+        var headers = ['Name', 'Email', 'Phone', 'Distance', 'Heard about us', 'Registration Date', 'Language'];
         var csvRows = [headers.join(',')];
 
         filteredData.forEach(function (row) {
             var values = [
-                escapeCSVField(row.firstName || ''),
-                escapeCSVField(row.lastName || ''),
+                escapeCSVField(((row.firstName || '') + ' ' + (row.lastName || '')).trim()),
                 escapeCSVField(row.email || ''),
                 escapeCSVField(row.phone || ''),
-                escapeCSVField(row.distance || ''),
-                escapeCSVField(row.tshirtSize || ''),
-                escapeCSVField(row.emergencyName || ''),
-                escapeCSVField(row.emergencyPhone || ''),
+                escapeCSVField(formatDistance(row.distance)),
+                escapeCSVField(row.heardFrom || ''),
                 escapeCSVField(formatDate(row.registrationDate)),
                 escapeCSVField(row.language || '')
             ];

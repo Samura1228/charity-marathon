@@ -2,90 +2,136 @@
    LIMASSOL CHARITY RUN — JAVASCRIPT
    ============================================ */
 
+/* ============================================
+   CONFIGURATION — edit these, nothing else needs to change
+   ============================================ */
+
+// Start of the free community run (Asia/Nicosia is UTC+3 in October).
+// The countdown targets this and hides itself once it has passed.
+var EVENT_START = '2026-10-11T08:30:00+03:00';
+
+// Where sign-ups are delivered. This is a Supabase table; the anon key is
+// public by design (row-level security only allows inserts). If you switch to
+// another service, change sendRegistration() below and these two constants.
+var SUPABASE_URL = 'https://rugxsvceksogunhqxwxd.supabase.co';
+var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ1Z3hzdmNla3NvZ3VuaHF4d3hkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY0MjYzODQsImV4cCI6MjA5MjAwMjM4NH0.FrOhyTeicRZW_mXse28zm6XDJALbhj0obB5qfHJNv78';
+var SUPABASE_TABLE = 'registrations';
+
+// Page title and description per language (the <title>/<meta> in the HTML are
+// the English defaults; these are swapped in when the visitor toggles language).
+var PAGE_META = {
+    en: {
+        title: 'Limassol Charity Run — free community run 11 Oct 2026, charity race 22 May 2027',
+        description: 'A charity run on the Limassol seafront raising money for a playground everyone can use. Free community run on 11 October 2026; 5 km and 10 km race on 22 May 2027.'
+    },
+    ru: {
+        title: 'Limassol Charity Run — бесплатный забег 11 октября 2026, благотворительный забег 22 мая 2027',
+        description: 'Благотворительный забег по набережной Лимассола в поддержку доступной спортивной площадки. Бесплатный забег 11 октября 2026, дистанции 5 и 10 км — 22 мая 2027.'
+    }
+};
+
 (function () {
     'use strict';
+
+    function isRussian() {
+        return document.body.classList.contains('ru');
+    }
 
     // ========================================
     // 1. COUNTDOWN TIMER
     // ========================================
-    const targetDate = new Date('2026-10-11T08:00:00+03:00').getTime();
+    var countdownEl = document.getElementById('countdown');
+    var daysEl = document.getElementById('days');
+    var hoursEl = document.getElementById('hours');
+    var minutesEl = document.getElementById('minutes');
+    var secondsEl = document.getElementById('seconds');
+
+    // Parse the ISO string; fall back to the same instant built by hand in case
+    // an old browser can't parse the timezone offset.
+    var targetTime = Date.parse(EVENT_START);
+    if (isNaN(targetTime)) {
+        targetTime = Date.UTC(2026, 9, 11, 5, 30, 0); // 08:30 +03:00
+    }
+
+    var countdownTimer = null;
+
+    function pad(n) {
+        return String(n).padStart(2, '0');
+    }
 
     function updateCountdown() {
-        const now = Date.now();
-        const diff = targetDate - now;
+        if (!countdownEl || !daysEl || !hoursEl || !minutesEl || !secondsEl) return;
 
-        const daysEl = document.getElementById('days');
-        const hoursEl = document.getElementById('hours');
-        const minutesEl = document.getElementById('minutes');
-        const secondsEl = document.getElementById('seconds');
-
-        if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+        var diff = targetTime - Date.now();
 
         if (diff <= 0) {
-            daysEl.textContent = '0';
-            hoursEl.textContent = '0';
-            minutesEl.textContent = '0';
-            secondsEl.textContent = '0';
-
-            // Replace countdown with "Race started" message
-            const countdown = document.getElementById('countdown');
-            if (countdown) {
-                const isRu = document.body.classList.contains('ru');
-                countdown.innerHTML = '<div class="countdown-item" style="min-width:auto;padding:20px 40px;"><span class="countdown-number" style="font-size:1.5rem;">' +
-                    (isRu ? 'Забег начался!' : 'The race has started!') +
-                    '</span></div>';
+            // The run has started — hide the timer rather than show zeros.
+            countdownEl.style.display = 'none';
+            if (countdownTimer) {
+                clearInterval(countdownTimer);
+                countdownTimer = null;
             }
             return;
         }
 
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        var totalSeconds = Math.floor(diff / 1000);
+        var days = Math.floor(totalSeconds / 86400);
+        var hours = Math.floor((totalSeconds % 86400) / 3600);
+        var minutes = Math.floor((totalSeconds % 3600) / 60);
+        var seconds = totalSeconds % 60;
 
-        daysEl.textContent = String(days).padStart(3, '0');
-        hoursEl.textContent = String(hours).padStart(2, '0');
-        minutesEl.textContent = String(minutes).padStart(2, '0');
-        secondsEl.textContent = String(seconds).padStart(2, '0');
+        daysEl.textContent = pad(days);
+        hoursEl.textContent = pad(hours);
+        minutesEl.textContent = pad(minutes);
+        secondsEl.textContent = pad(seconds);
     }
 
     updateCountdown();
-    setInterval(updateCountdown, 1000);
+    if (countdownEl && countdownEl.style.display !== 'none') {
+        countdownTimer = setInterval(updateCountdown, 1000);
+    }
 
     // ========================================
     // 2. LANGUAGE TOGGLE
     // ========================================
-    const langToggle = document.getElementById('lang-toggle');
+    var langToggle = document.getElementById('lang-toggle');
+    var metaDescription = document.querySelector('meta[name="description"]');
 
     function setLanguage(lang) {
-        if (lang === 'ru') {
-            document.body.classList.add('ru');
-            if (langToggle) langToggle.textContent = 'RU';
-        } else {
-            document.body.classList.remove('ru');
-            if (langToggle) langToggle.textContent = 'EN';
-        }
-        localStorage.setItem('lcr-lang', lang);
+        var isRu = lang === 'ru';
+        var meta = isRu ? PAGE_META.ru : PAGE_META.en;
+
+        document.body.classList.toggle('ru', isRu);
+        document.documentElement.setAttribute('lang', isRu ? 'ru' : 'en');
+        document.title = meta.title;
+        if (metaDescription) metaDescription.setAttribute('content', meta.description);
+        if (langToggle) langToggle.textContent = isRu ? 'RU' : 'EN';
+
+        try {
+            localStorage.setItem('lcr-lang', isRu ? 'ru' : 'en');
+        } catch (e) { /* storage unavailable — fine */ }
     }
 
     // Load saved preference
-    const savedLang = localStorage.getItem('lcr-lang');
-    if (savedLang) {
-        setLanguage(savedLang);
+    var savedLang = null;
+    try {
+        savedLang = localStorage.getItem('lcr-lang');
+    } catch (e) { /* storage unavailable — fine */ }
+    if (savedLang === 'ru') {
+        setLanguage('ru');
     }
 
     if (langToggle) {
         langToggle.addEventListener('click', function () {
-            const isRu = document.body.classList.contains('ru');
-            setLanguage(isRu ? 'en' : 'ru');
+            setLanguage(isRussian() ? 'en' : 'ru');
         });
     }
 
     // ========================================
     // 3. MOBILE MENU TOGGLE
     // ========================================
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('nav-menu');
+    var hamburger = document.getElementById('hamburger');
+    var navMenu = document.getElementById('nav-menu');
 
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', function () {
@@ -94,8 +140,7 @@
         });
 
         // Close menu when a nav link is clicked
-        const navLinks = navMenu.querySelectorAll('.nav-link');
-        navLinks.forEach(function (link) {
+        navMenu.querySelectorAll('.nav-link').forEach(function (link) {
             link.addEventListener('click', function () {
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
@@ -106,15 +151,11 @@
     // ========================================
     // 4. STICKY NAVIGATION
     // ========================================
-    const navbar = document.getElementById('navbar');
+    var navbar = document.getElementById('navbar');
 
     function handleScroll() {
         if (!navbar) return;
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -123,17 +164,16 @@
     // ========================================
     // 5. FAQ ACCORDION
     // ========================================
-    const faqItems = document.querySelectorAll('.faq-item');
+    var faqItems = document.querySelectorAll('.faq-item');
 
     faqItems.forEach(function (item) {
-        const question = item.querySelector('.faq-question');
+        var question = item.querySelector('.faq-question');
         if (!question) return;
 
-        // Set initial aria state
         question.setAttribute('aria-expanded', 'false');
 
         question.addEventListener('click', function () {
-            const isActive = item.classList.contains('active');
+            var isActive = item.classList.contains('active');
 
             // Close all other items
             faqItems.forEach(function (otherItem) {
@@ -153,10 +193,10 @@
     // ========================================
     // 6. SCROLL ANIMATIONS (IntersectionObserver)
     // ========================================
-    const fadeElements = document.querySelectorAll('.fade-in');
+    var fadeElements = document.querySelectorAll('.fade-in');
 
     if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver(function (entries) {
+        var observer = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
@@ -181,24 +221,20 @@
     // ========================================
     // 7. ACTIVE NAV LINK HIGHLIGHTING
     // ========================================
-    const sections = document.querySelectorAll('section[id]');
-    const allNavLinks = document.querySelectorAll('.nav-link');
+    var sections = document.querySelectorAll('section[id]');
+    var allNavLinks = document.querySelectorAll('.nav-link');
 
     function highlightNavLink() {
-        const scrollPos = window.scrollY + 120;
+        var scrollPos = window.scrollY + 120;
 
         sections.forEach(function (section) {
-            const top = section.offsetTop;
-            const height = section.offsetHeight;
-            const id = section.getAttribute('id');
+            var top = section.offsetTop;
+            var height = section.offsetHeight;
+            var id = section.getAttribute('id');
 
             if (scrollPos >= top && scrollPos < top + height) {
                 allNavLinks.forEach(function (link) {
-                    link.classList.remove('active');
-                    const href = link.getAttribute('href');
-                    if (href === '#' + id) {
-                        link.classList.add('active');
-                    }
+                    link.classList.toggle('active', link.getAttribute('href') === '#' + id);
                 });
             }
         });
@@ -207,159 +243,164 @@
     window.addEventListener('scroll', highlightNavLink, { passive: true });
 
     // ========================================
-    // 8. REGISTRATION FORM — NETLIFY FUNCTION
+    // 8. SIGN-UP FORM (free community run)
     // ========================================
-    const registrationForm = document.getElementById('registration-form');
-    const formSuccess = document.getElementById('form-success');
+    var registrationForm = document.getElementById('registration-form');
+    var formSuccess = document.getElementById('form-success');
+    var formError = document.getElementById('form-error');
+    var formErrorText = document.getElementById('form-error-text');
+
+    var FORM_MESSAGES = {
+        en: {
+            missing: 'Please fill in the required fields.',
+            email: 'Please check your email address.',
+            failed: 'Something went wrong and your place wasn\'t saved. Your details are still here — please try again, or email info@limassolcharityrun.com.',
+            sending: 'Sending…'
+        },
+        ru: {
+            missing: 'Пожалуйста, заполните обязательные поля.',
+            email: 'Пожалуйста, проверьте адрес электронной почты.',
+            failed: 'Что-то пошло не так, и место не сохранилось. Ваши данные на месте — попробуйте ещё раз или напишите на info@limassolcharityrun.com.',
+            sending: 'Отправляем…'
+        }
+    };
+
+    function showFormError(key) {
+        if (!formError || !formErrorText) return;
+        var messages = isRussian() ? FORM_MESSAGES.ru : FORM_MESSAGES.en;
+        formErrorText.textContent = messages[key];
+        formError.hidden = false;
+    }
+
+    function hideFormError() {
+        if (formError) formError.hidden = true;
+    }
+
+    function markInvalid(el, invalid) {
+        if (!el) return;
+        el.classList.toggle('is-invalid', invalid);
+    }
+
+    // POST one registration row. Returns the fetch Response.
+    function sendRegistration(row) {
+        return fetch(SUPABASE_URL + '/rest/v1/' + SUPABASE_TABLE, {
+            method: 'POST',
+            headers: {
+                'apikey': SUPABASE_KEY,
+                'Authorization': 'Bearer ' + SUPABASE_KEY,
+                'Content-Type': 'application/json',
+                'Prefer': 'return=minimal'
+            },
+            body: JSON.stringify(row)
+        });
+    }
 
     if (registrationForm) {
         registrationForm.addEventListener('submit', async function (e) {
             e.preventDefault();
+            hideFormError();
 
-            // Validate all required fields
-            const firstName = document.getElementById('firstName');
-            const lastName = document.getElementById('lastName');
-            const email = document.getElementById('email');
-            const phone = document.getElementById('phone');
-            const distance = document.getElementById('distance');
-            const tshirtSize = document.getElementById('tshirtSize');
-            const emergencyName = document.getElementById('emergencyName');
-            const emergencyPhone = document.getElementById('emergencyPhone');
-            const terms = document.getElementById('terms');
+            var fullName = document.getElementById('fullName');
+            var email = document.getElementById('email');
+            var phone = document.getElementById('phone');
+            var heardFrom = document.getElementById('heardFrom');
+            var distanceGroup = document.getElementById('distance-group');
+            var distanceInput = registrationForm.querySelector('input[name="distance"]:checked');
 
-            const requiredFields = [firstName, lastName, email, phone, distance, tshirtSize, emergencyName, emergencyPhone];
-            let isValid = true;
+            // --- Validate ---
+            var valid = true;
 
-            // Remove previous error styles
-            requiredFields.forEach(function (field) {
-                field.style.borderColor = '';
+            [fullName, email, heardFrom].forEach(function (field) {
+                var empty = !field || !field.value || field.value.trim() === '';
+                markInvalid(field, empty);
+                if (empty) valid = false;
             });
 
-            // Check each field
-            requiredFields.forEach(function (field) {
-                if (!field.value || field.value.trim() === '') {
-                    field.style.borderColor = 'var(--accent)';
-                    isValid = false;
-                }
-            });
+            markInvalid(distanceGroup, !distanceInput);
+            if (!distanceInput) valid = false;
 
-            // Validate email format
-            if (email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
-                email.style.borderColor = 'var(--accent)';
-                isValid = false;
-            }
-
-            // Check terms
-            if (!terms.checked) {
-                isValid = false;
-                const isRu = document.body.classList.contains('ru');
-                alert(isRu ? 'Пожалуйста, примите условия.' : 'Please agree to the terms and conditions.');
+            if (!valid) {
+                showFormError('missing');
                 return;
             }
 
-            if (!isValid) {
-                const isRu = document.body.classList.contains('ru');
-                alert(isRu ? 'Пожалуйста, заполните все обязательные поля.' : 'Please fill in all required fields.');
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+                markInvalid(email, true);
+                showFormError('email');
                 return;
             }
 
-            // Collect form data
-            const formData = {
-                firstName: firstName.value.trim(),
-                lastName: lastName.value.trim(),
+            // --- Build the row ---
+            // The table has first_name / last_name columns, so split on the first space.
+            var nameParts = fullName.value.trim().split(/\s+/);
+            var row = {
+                first_name: nameParts.shift(),
+                last_name: nameParts.join(' '),
                 email: email.value.trim(),
-                phone: phone.value.trim(),
-                distance: distance.value,
-                tshirtSize: tshirtSize.value,
-                emergencyName: emergencyName.value.trim(),
-                emergencyPhone: emergencyPhone.value.trim(),
-                registrationDate: new Date().toISOString(),
-                language: document.body.classList.contains('ru') ? 'RU' : 'EN'
+                phone: phone && phone.value ? phone.value.trim() : '',
+                distance: distanceInput.value,
+                heard_from: heardFrom.value.trim(),
+                registration_date: new Date().toISOString(),
+                language: isRussian() ? 'RU' : 'EN'
             };
 
-            // Show loading state
-            const submitBtn = registrationForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            const isRuLang = document.body.classList.contains('ru');
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ' + (isRuLang ? 'Обработка...' : 'Processing...');
+            // --- Loading state ---
+            var submitBtn = registrationForm.querySelector('button[type="submit"]');
+            var originalHtml = submitBtn.innerHTML;
+            var messages = isRussian() ? FORM_MESSAGES.ru : FORM_MESSAGES.en;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ' + messages.sending;
             submitBtn.disabled = true;
-            submitBtn.style.opacity = '0.7';
-
-            // Supabase configuration
-            var SUPABASE_URL = 'https://rugxsvceksogunhqxwxd.supabase.co';
-            var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ1Z3hzdmNla3NvZ3VuaHF4d3hkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY0MjYzODQsImV4cCI6MjA5MjAwMjM4NH0.FrOhyTeicRZW_mXse28zm6XDJALbhj0obB5qfHJNv78';
 
             try {
-                // Send registration directly to Supabase (works on ALL devices)
-                var response = await fetch(SUPABASE_URL + '/rest/v1/registrations', {
-                    method: 'POST',
-                    headers: {
-                        'apikey': SUPABASE_KEY,
-                        'Authorization': 'Bearer ' + SUPABASE_KEY,
-                        'Content-Type': 'application/json',
-                        'Prefer': 'return=minimal'
-                    },
-                    body: JSON.stringify({
-                        first_name: formData.firstName,
-                        last_name: formData.lastName,
-                        email: formData.email,
-                        phone: formData.phone,
-                        distance: formData.distance,
-                        tshirt_size: formData.tshirtSize,
-                        emergency_name: formData.emergencyName,
-                        emergency_phone: formData.emergencyPhone,
-                        registration_date: formData.registrationDate,
-                        language: formData.language
-                    })
-                });
+                var response = await sendRegistration(row);
+
+                // If the heard_from column hasn't been added to the table yet, the
+                // API rejects the whole row. Don't lose the sign-up over one field:
+                // retry without it and log a warning for the site owner.
+                if (response.status === 400) {
+                    var bodyText = await response.text();
+                    if (bodyText.indexOf('heard_from') !== -1) {
+                        console.warn('registrations.heard_from column is missing — run the ALTER TABLE in supabase-setup.sql. Retrying without it.');
+                        delete row.heard_from;
+                        response = await sendRegistration(row);
+                    } else {
+                        console.error('Registration rejected:', response.status, bodyText);
+                    }
+                }
 
                 if (!response.ok) {
-                    var errorText = await response.text();
-                    console.error('Supabase error:', response.status, errorText);
                     throw new Error('Registration failed: ' + response.status);
                 }
 
-                // Success — show confirmation
-                // (PayPal €50 payment step is switched off; to re-enable,
-                // show #payment-selection here instead of #form-success)
+                // Success — swap the form for the confirmation
                 registrationForm.style.display = 'none';
                 if (formSuccess) {
                     formSuccess.style.display = 'block';
+                    formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
             } catch (error) {
+                // Leave every field exactly as the person typed it.
                 console.error('Registration error:', error);
-                var isRu2 = document.body.classList.contains('ru');
-                alert(isRu2 ? 'Ошибка регистрации. Пожалуйста, попробуйте снова.' : 'Registration failed. Please try again.');
-                submitBtn.innerHTML = originalText;
+                showFormError('failed');
+            } finally {
+                submitBtn.innerHTML = originalHtml;
                 submitBtn.disabled = false;
-                submitBtn.style.opacity = '1';
+            }
+        });
+
+        // Clear the red outline as soon as someone starts fixing a field
+        registrationForm.addEventListener('input', function (e) {
+            if (e.target && e.target.classList) markInvalid(e.target, false);
+            if (e.target && e.target.name === 'distance') {
+                markInvalid(document.getElementById('distance-group'), false);
             }
         });
     }
 
     // ========================================
-    // 9. PROGRESS BAR ANIMATION ON SCROLL
+    // 9. FUNDRAISING PROGRESS BAR
     // ========================================
-    const progressBar = document.getElementById('progress-bar');
-
-    if (progressBar && 'IntersectionObserver' in window) {
-        // Reset width initially
-        progressBar.style.width = '0%';
-        progressBar.style.animation = 'none';
-
-        const progressObserver = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    progressBar.style.transition = 'width 2s ease';
-                    progressBar.style.width = '0%';
-                    progressObserver.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.3
-        });
-
-        progressObserver.observe(progressBar.closest('.progress-card') || progressBar);
-    }
+    // Removed for now along with the progress card in index.html. When the card
+    // comes back, animate #progress-bar's width here on scroll into view.
 
 })();

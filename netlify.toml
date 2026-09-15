@@ -1,11 +1,6 @@
 [build]
   # No build command needed — static site
   publish = "."
-  functions = "netlify/functions"
-
-[functions]
-  # Node.js bundling for serverless functions
-  node_bundler = "esbuild"
 
 # Redirect /admin to admin.html for cleaner URLs
 [[redirects]]

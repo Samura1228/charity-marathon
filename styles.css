@@ -475,10 +475,34 @@ body.ru div.lang-ru {
     font-size: 1.1rem;
     color: rgba(255, 255, 255, 0.7);
     max-width: 600px;
-    margin: 0 auto 48px;
+    margin: 0 auto 28px;
     animation: fadeInUp 0.8s ease 0.5s forwards;
     opacity: 0;
     line-height: 1.8;
+}
+
+/* Hero date lines */
+.hero-dates {
+    margin: 0 auto 40px;
+    animation: fadeInUp 0.8s ease 0.55s forwards;
+    opacity: 0;
+}
+
+.hero-date {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.hero-date-primary {
+    font-size: 1.15rem;
+    color: var(--secondary);
+    margin-bottom: 6px;
+}
+
+.hero-date-secondary {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.75);
 }
 
 /* Countdown */
@@ -570,7 +594,7 @@ body.ru div.lang-ru {
 /* Scroll Indicator */
 .hero-scroll-indicator {
     position: absolute;
-    bottom: 140px;
+    bottom: 36px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
@@ -639,13 +663,69 @@ body.ru div.lang-ru {
 }
 
 /* ============================================
-   ABOUT / MISSION SECTION
+   NOTICE (under the hero)
    ============================================ */
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
+.notice {
+    background: var(--light);
+    padding: 8px 0 0;
+}
+
+.notice-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 28px;
+    background: rgba(245, 166, 35, 0.1);
+    border: 1px solid rgba(245, 166, 35, 0.3);
+    border-left: 4px solid var(--secondary);
+    border-radius: var(--radius);
+}
+
+.notice-card i {
+    font-size: 1.4rem;
+    color: var(--secondary);
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.notice-card p {
+    font-size: 1.02rem;
+    color: #444;
+    line-height: 1.7;
+}
+
+/* ============================================
+   CENTERED TEXT BLOCKS (cause, partners)
+   ============================================ */
+.centered-text {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.centered-text p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 16px;
+    line-height: 1.8;
+}
+
+.centered-text .about-icon {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-link {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.text-link:hover {
+    color: var(--accent-hover);
 }
 
 .about-icon {
@@ -664,18 +744,7 @@ body.ru div.lang-ru {
     color: var(--light);
 }
 
-.about-text p {
-    font-size: 1.05rem;
-    color: #555;
-    margin-bottom: 16px;
-    line-height: 1.8;
-}
-
-.about-text strong {
-    color: var(--accent);
-}
-
-/* Progress Card */
+/* Progress Card (markup currently commented out in index.html — kept for when it returns) */
 .progress-card {
     background: var(--light);
     border-radius: var(--radius);
@@ -752,261 +821,97 @@ body.ru div.lang-ru {
     white-space: nowrap;
 }
 
-.progress-stats {
+/* ============================================
+   FREE COMMUNITY RUN — info grid
+   ============================================ */
+.run-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    text-align: center;
-}
-
-.progress-stat {
-    padding: 12px;
-    background: var(--light-gray);
-    border-radius: var(--radius-sm);
-}
-
-.progress-stat-number {
-    display: block;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: var(--text-dark);
-}
-
-.progress-stat-label {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* ============================================
-   DISTANCES SECTION
-   ============================================ */
-.distances-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-}
-
-.distance-card {
-    background: var(--card-dark);
-    border-radius: var(--radius);
-    padding: 40px 32px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    transition: var(--transition);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.distance-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--accent), var(--secondary));
-    opacity: 0;
-    transition: var(--transition);
-}
-
-.distance-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-}
-
-.distance-card:hover::before {
-    opacity: 1;
-}
-
-.distance-card-featured {
-    background: linear-gradient(135deg, rgba(233, 69, 96, 0.15), var(--card-dark));
-    border-color: rgba(233, 69, 96, 0.2);
-    transform: scale(1.05);
-}
-
-.distance-card-featured:hover {
-    transform: scale(1.05) translateY(-8px);
-}
-
-.distance-card-badge {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    background: rgba(233, 69, 96, 0.2);
-    color: var(--accent);
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 4px 12px;
-    border-radius: 50px;
-}
-
-.distance-card-icon {
-    width: 70px;
-    height: 70px;
-    margin: 0 auto 20px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.distance-card-icon i {
-    font-size: 1.8rem;
-    color: var(--accent);
-}
-
-.distance-card-number {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 3.5rem;
-    font-weight: 900;
-    color: var(--light);
-    line-height: 1;
-    margin-bottom: 8px;
-}
-
-.distance-card-number span {
-    font-size: 1.2rem;
-    color: var(--text-muted);
-    font-weight: 600;
-}
-
-.distance-card-title {
-    font-size: 1.2rem;
-    color: var(--light);
-    margin-bottom: 12px;
-    font-weight: 700;
-}
-
-.distance-card-desc {
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    margin-bottom: 24px;
-    line-height: 1.6;
-}
-
-.distance-card-price {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 900;
-    color: var(--secondary);
-    margin-bottom: 24px;
-}
-
-.distance-card .btn {
-    width: 100%;
-    justify-content: center;
-    padding: 14px 24px;
-    font-size: 0.9rem;
-}
-
-/* ============================================
-   WHY PARTICIPATE SECTION
-   ============================================ */
-.why-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    margin-bottom: 60px;
-}
-
-.why-card {
-    text-align: center;
-    padding: 40px 32px;
-    border-radius: var(--radius);
-    background: var(--light);
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    border: 1px solid rgba(0, 0, 0, 0.04);
-}
-
-.why-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-}
-
-.why-card-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 24px;
-    background: linear-gradient(135deg, rgba(233, 69, 96, 0.1), rgba(245, 166, 35, 0.1));
-    border-radius: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition);
-}
-
-.why-card:hover .why-card-icon {
-    background: linear-gradient(135deg, var(--accent), #ff6b81);
-}
-
-.why-card:hover .why-card-icon i {
-    color: var(--light);
-}
-
-.why-card-icon i {
-    font-size: 2rem;
-    color: var(--accent);
-    transition: var(--transition);
-}
-
-.why-card h3 {
-    font-size: 1.3rem;
-    margin-bottom: 12px;
-    color: var(--text-dark);
-}
-
-.why-card p {
-    font-size: 0.95rem;
-    color: #666;
-    line-height: 1.7;
-}
-
-/* Quote */
-.why-quote {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.why-quote blockquote {
-    position: relative;
-    padding: 40px;
-    background: linear-gradient(135deg, rgba(233, 69, 96, 0.05), rgba(245, 166, 35, 0.05));
-    border-radius: var(--radius);
-    border-left: 4px solid var(--accent);
-}
-
-.why-quote blockquote i {
-    font-size: 2rem;
-    color: var(--accent);
-    opacity: 0.3;
-    margin-bottom: 16px;
-    display: block;
-}
-
-.why-quote blockquote p {
-    font-size: 1.15rem;
-    font-style: italic;
-    color: #555;
-    line-height: 1.8;
-}
-
-/* ============================================
-   EVENT DETAILS SECTION
-   ============================================ */
-.details-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
     gap: 24px;
 }
 
+.run-grid .detail-card p {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.section-cta {
+    text-align: center;
+    margin-top: 48px;
+}
+
+/* ============================================
+   THE 2027 RACE
+   ============================================ */
+.race-card {
+    max-width: 760px;
+    margin: 0 auto;
+    background: var(--light);
+    border-radius: var(--radius);
+    padding: 40px 44px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.race-intro {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 24px;
+}
+
+.race-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.race-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    font-size: 1.05rem;
+    color: #444;
+    line-height: 1.7;
+}
+
+.race-list li i {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(233, 69, 96, 0.1);
+    color: var(--accent);
+    font-size: 1rem;
+    margin-top: 2px;
+}
+
+.race-list a,
+.faq-answer a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.race-note {
+    font-size: 0.95rem;
+    color: #777;
+    font-style: italic;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* ============================================
+   INFO CARDS (shared by the free-run grid)
+   ============================================ */
 .detail-card {
     background: var(--card-dark);
     border-radius: var(--radius);
@@ -1113,25 +1018,94 @@ body.ru div.lang-ru {
     color: #bbb;
 }
 
-/* Checkbox */
-.form-group-checkbox {
-    margin-bottom: 24px;
+.form-group-full {
+    grid-column: 1 / -1;
 }
 
-.checkbox-label {
+/* Non-<label> heading for a group of radios */
+.form-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+}
+
+/* Distance choice */
+.radio-group {
+    display: flex;
+    gap: 10px;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+}
+
+.radio-option {
+    flex: 1;
     display: flex;
     align-items: center;
-    gap: 12px;
-    cursor: pointer;
+    gap: 10px;
+    padding: 13px 14px;
+    border: 2px solid #e8e8e8;
+    border-radius: var(--radius-sm);
+    background: var(--light-gray);
     font-size: 0.95rem;
-    color: #555;
+    font-weight: 500;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: var(--transition);
+    min-height: 52px;
 }
 
-.checkbox-label input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
+.radio-option:hover {
+    border-color: #d0d0d0;
+}
+
+.radio-option input[type="radio"] {
+    width: 18px;
+    height: 18px;
     accent-color: var(--accent);
     cursor: pointer;
+    flex-shrink: 0;
+    margin: 0;
+}
+
+.radio-option:has(input:checked) {
+    border-color: var(--accent);
+    background: var(--light);
+    box-shadow: 0 0 0 4px rgba(233, 69, 96, 0.1);
+}
+
+/* Validation */
+.form-group input.is-invalid,
+.radio-group.is-invalid {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(233, 69, 96, 0.12);
+}
+
+.radio-group.is-invalid {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.form-error {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    border-radius: var(--radius-sm);
+    background: rgba(233, 69, 96, 0.08);
+    border: 1px solid rgba(233, 69, 96, 0.3);
+    color: #b3213a;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.form-error[hidden] {
+    display: none;
+}
+
+.form-error i {
+    margin-top: 3px;
     flex-shrink: 0;
 }
 
@@ -1140,6 +1114,13 @@ body.ru div.lang-ru {
     justify-content: center;
     padding: 18px 36px;
     font-size: 1.05rem;
+}
+
+.form-note {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 0.95rem;
+    color: #666;
 }
 
 /* Success Message */
@@ -1278,30 +1259,15 @@ body.ru div.lang-ru {
     color: var(--text-muted);
     line-height: 1.7;
     margin-bottom: 24px;
+    overflow-wrap: anywhere;
 }
 
-.footer-socials {
-    display: flex;
-    gap: 12px;
+.footer-desc a {
+    color: var(--text-light);
 }
 
-.footer-socials a {
-    width: 44px;
-    height: 44px;
-    background: rgba(255, 255, 255, 0.06);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-muted);
-    font-size: 1.1rem;
-    transition: var(--transition);
-}
-
-.footer-socials a:hover {
-    background: var(--accent);
-    color: var(--light);
-    transform: translateY(-3px);
+.footer-desc a:hover {
+    color: var(--accent);
 }
 
 .footer-col h4 {
@@ -1363,12 +1329,6 @@ body.ru div.lang-ru {
 /* ============================================
    RESPONSIVE — TABLET (768px)
    ============================================ */
-@media (max-width: 1024px) {
-    .details-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
 @media (max-width: 768px) {
     /* Nav */
     .hamburger {
@@ -1404,6 +1364,14 @@ body.ru div.lang-ru {
         padding: 100px 20px 80px;
     }
 
+    .hero-date-primary {
+        font-size: 1.05rem;
+    }
+
+    .hero-date-secondary {
+        font-size: 0.95rem;
+    }
+
     .countdown {
         gap: 10px;
     }
@@ -1417,44 +1385,25 @@ body.ru div.lang-ru {
         font-size: 1.8rem;
     }
 
-    /* About */
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
+    /* Notice */
+    .notice-card {
+        padding: 20px;
     }
 
+    /* Progress card (when restored) */
     .progress-card {
         position: static;
     }
 
-    /* Distances */
-    .distances-grid {
-        grid-template-columns: 1fr;
-        max-width: 400px;
-        margin: 0 auto;
-    }
-
-    .distance-card-featured {
-        transform: none;
-    }
-
-    .distance-card-featured:hover {
-        transform: translateY(-8px);
-    }
-
-    /* Why */
-    .why-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
-
-    /* Details */
-    .details-grid {
+    /* Free run grid */
+    .run-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
     }
 
-    .details-grid .detail-card:last-child {
-        grid-column: span 2;
+    /* 2027 race */
+    .race-card {
+        padding: 28px 24px;
     }
 
     /* Form */
@@ -1492,12 +1441,24 @@ body.ru div.lang-ru {
    RESPONSIVE — MOBILE (< 480px)
    ============================================ */
 @media (max-width: 480px) {
+    .hero {
+        padding: 100px 16px 80px;
+    }
+
     .hero-title {
         font-size: 2.2rem;
     }
 
     .hero-tagline {
         font-size: 0.95rem;
+    }
+
+    .hero-date-primary {
+        font-size: 0.95rem;
+    }
+
+    .hero-date-secondary {
+        font-size: 0.85rem;
     }
 
     .countdown {
@@ -1521,24 +1482,42 @@ body.ru div.lang-ru {
         font-size: 0.85rem;
     }
 
+    .container {
+        padding: 0 16px;
+    }
+
     .section-title {
         font-size: 1.6rem;
     }
 
-    .details-grid {
+    .notice-card {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .run-grid {
         grid-template-columns: 1fr;
     }
 
-    .details-grid .detail-card:last-child {
-        grid-column: span 1;
+    .race-list li {
+        font-size: 1rem;
+    }
+
+    .radio-group {
+        flex-direction: column;
     }
 
     .btn-hero {
-        padding: 16px 32px;
-        font-size: 0.95rem;
+        padding: 16px 28px;
+        font-size: 0.9rem;
     }
 
-    .progress-stats {
-        grid-template-columns: 1fr;
+    .btn-hero .lang-ru {
+        font-size: 0.85rem;
+    }
+
+    /* The hero is already tall on phones; the bouncing arrow just crowds the button */
+    .hero-scroll-indicator {
+        display: none;
     }
 }
