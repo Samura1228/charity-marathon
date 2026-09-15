@@ -319,11 +319,12 @@
                     throw new Error('Registration failed: ' + response.status);
                 }
 
-                // Success — show payment selection
+                // Success — show confirmation
+                // (PayPal €50 payment step is switched off; to re-enable,
+                // show #payment-selection here instead of #form-success)
                 registrationForm.style.display = 'none';
-                var paymentSelection = document.getElementById('payment-selection');
-                if (paymentSelection) {
-                    paymentSelection.style.display = 'block';
+                if (formSuccess) {
+                    formSuccess.style.display = 'block';
                 }
             } catch (error) {
                 console.error('Registration error:', error);
