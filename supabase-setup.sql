@@ -34,7 +34,5 @@ CREATE POLICY "Allow public inserts" ON registrations
   FOR INSERT TO anon
   WITH CHECK (true);
 
--- Allow anyone to SELECT (for the admin dashboard)
-CREATE POLICY "Allow public reads" ON registrations
-  FOR SELECT TO anon
-  USING (true);
+-- Deliberately NO select policy for anon: the table holds personal data and
+-- nothing in client code may read it. Manage sign-ups in the Supabase dashboard.
