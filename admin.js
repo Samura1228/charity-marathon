@@ -14,7 +14,7 @@
 
     // Supabase configuration
     const SUPABASE_URL = 'https://rugxsvceksogunhqxwxd.supabase.co';
-    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ1Z3hzdmNla3NvZ3VuaHF4d3hkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY0MjYzODQsImV4cCI6MjA5MjAwMjM4NH0.FrOhyTeicRZW_mXse28zm6XDJALbhj0obB5qfHJNv78';
+    const SUPABASE_KEY = 'sb_publishable_cl593if7NYgdCHA7mCiCRA_Ch69Q9-I'; // publishable key, same as app.js
 
     // ========================================
     // STATE
