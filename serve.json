@@ -1,0 +1,11 @@
+{
+  "cleanUrls": false,
+  "directoryListing": false,
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" }
+  ],
+  "redirects": [
+    { "source": "/privacy", "destination": "/privacy.html", "type": 301 },
+    { "source": "/terms", "destination": "/terms.html", "type": 301 }
+  ]
+}
