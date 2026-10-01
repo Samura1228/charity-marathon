@@ -2,11 +2,18 @@
 
 -- ============================================================
 -- A. ALREADY HAVE THE TABLE?  Run just this block.
---    The sign-up form now asks "Where you heard about us" and
---    stores it in heard_from. Until this column exists the form
---    still saves the sign-up but drops that one answer.
+--    The form records consent (Terms accepted, photo opt-out,
+--    news opt-in) and the moment it was given. consent_at is the
+--    GDPR proof of consent. Until these columns exist every
+--    sign-up fails with 400 — run this before deploying.
 -- ============================================================
-ALTER TABLE registrations ADD COLUMN IF NOT EXISTS heard_from TEXT;
+ALTER TABLE public.registrations ADD COLUMN IF NOT EXISTS heard_from TEXT;
+
+ALTER TABLE public.registrations
+  ADD COLUMN IF NOT EXISTS terms_accepted boolean NOT NULL DEFAULT false,
+  ADD COLUMN IF NOT EXISTS photo_opt_out  boolean NOT NULL DEFAULT false,
+  ADD COLUMN IF NOT EXISTS marketing_opt_in boolean NOT NULL DEFAULT false,
+  ADD COLUMN IF NOT EXISTS consent_at timestamptz;
 
 
 -- ============================================================
@@ -19,8 +26,14 @@ CREATE TABLE registrations (
   last_name TEXT,
   email TEXT,
   phone TEXT,               -- optional
-  distance TEXT,            -- '5km' or '1km-family'
+  distance TEXT,            -- '5km' or '1km'
   heard_from TEXT,          -- "Where you heard about us"
+  emergency_name TEXT,      -- optional until the date is set
+  emergency_phone TEXT,     -- optional until the date is set
+  terms_accepted boolean NOT NULL DEFAULT false,
+  photo_opt_out boolean NOT NULL DEFAULT false,
+  marketing_opt_in boolean NOT NULL DEFAULT false,
+  consent_at timestamptz,   -- when the Terms were accepted (GDPR proof of consent)
   registration_date TEXT,
   language TEXT DEFAULT 'EN',
   created_at TIMESTAMPTZ DEFAULT NOW()
