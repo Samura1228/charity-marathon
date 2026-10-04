@@ -388,22 +388,22 @@
                     <div class="field-grid">
                         <div class="field">
                             <label for="first_name" data-i18n="form.first">First name</label>
-                            <input type="text" id="first_name" name="first_name" autocomplete="given-name" required aria-describedby="err-first_name">
+                            <input type="text" id="first_name" name="first_name" maxlength="100" autocomplete="given-name" required aria-describedby="err-first_name">
                             <p class="field-error" id="err-first_name" hidden></p>
                         </div>
                         <div class="field">
                             <label for="last_name" data-i18n="form.last">Last name</label>
-                            <input type="text" id="last_name" name="last_name" autocomplete="family-name" required aria-describedby="err-last_name">
+                            <input type="text" id="last_name" name="last_name" maxlength="100" autocomplete="family-name" required aria-describedby="err-last_name">
                             <p class="field-error" id="err-last_name" hidden></p>
                         </div>
                         <div class="field">
                             <label for="email" data-i18n="form.email">Email</label>
-                            <input type="email" id="email" name="email" autocomplete="email" inputmode="email" required aria-describedby="err-email">
+                            <input type="email" id="email" name="email" maxlength="254" autocomplete="email" inputmode="email" required aria-describedby="err-email">
                             <p class="field-error" id="err-email" hidden></p>
                         </div>
                         <div class="field">
                             <label for="phone" data-i18n="form.phone">Phone (optional)</label>
-                            <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" aria-describedby="hint-phone">
+                            <input type="tel" id="phone" name="phone" maxlength="40" autocomplete="tel" inputmode="tel" aria-describedby="hint-phone">
                             <p class="field-hint" id="hint-phone" data-i18n="form.phone.hint">In case we need to reach you on the morning of the run</p>
                         </div>
 
@@ -441,11 +441,11 @@
                             <div class="subgrid">
                                 <div class="field">
                                     <label for="emergency_name" data-i18n="form.emergency.name">Name (optional)</label>
-                                    <input type="text" id="emergency_name" name="emergency_name" autocomplete="off">
+                                    <input type="text" id="emergency_name" name="emergency_name" maxlength="100" autocomplete="off">
                                 </div>
                                 <div class="field">
                                     <label for="emergency_phone" data-i18n="form.emergency.phone">Phone (optional)</label>
-                                    <input type="tel" id="emergency_phone" name="emergency_phone" inputmode="tel" autocomplete="off">
+                                    <input type="tel" id="emergency_phone" name="emergency_phone" maxlength="40" inputmode="tel" autocomplete="off">
                                 </div>
                             </div>
                         </fieldset>

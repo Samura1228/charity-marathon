@@ -49,3 +49,36 @@ CREATE POLICY "Allow public inserts" ON registrations
 
 -- Deliberately NO select policy for anon: the table holds personal data and
 -- nothing in client code may read it. Manage sign-ups in the Supabase dashboard.
+
+
+-- ============================================================
+-- C. HARDEN THE INSERT.  Run once, after A or B.
+--    anon may write only the form's own columns (no id, no
+--    created_at), every row must carry a real, current consent,
+--    and no field may be oversized. The maxlength attributes in
+--    index.html mirror these limits.
+-- ============================================================
+REVOKE INSERT ON public.registrations FROM anon;
+GRANT INSERT (first_name, last_name, email, phone, distance, heard_from,
+              emergency_name, emergency_phone, terms_accepted, photo_opt_out,
+              marketing_opt_in, consent_at, registration_date, language)
+  ON public.registrations TO anon;
+
+DROP POLICY IF EXISTS "Allow public inserts" ON public.registrations;
+CREATE POLICY "Allow public inserts" ON public.registrations
+  FOR INSERT TO anon
+  WITH CHECK (
+    terms_accepted = true
+    AND consent_at BETWEEN now() - interval '1 day' AND now() + interval '1 day'
+    AND distance IN ('5km', '1km')
+    AND language IN ('EN', 'RU')
+    AND email ~* '^[^@\s]+@[^@\s]+\.[^@\s]{2,}$'
+    AND length(email) <= 254
+    AND length(first_name) BETWEEN 1 AND 100
+    AND length(last_name)  BETWEEN 1 AND 100
+    AND coalesce(length(phone), 0)             <= 40
+    AND coalesce(length(heard_from), 0)        <= 60
+    AND coalesce(length(emergency_name), 0)    <= 100
+    AND coalesce(length(emergency_phone), 0)   <= 40
+    AND coalesce(length(registration_date), 0) <= 10
+  );
