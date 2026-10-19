@@ -18,7 +18,7 @@
     --shadow: 0 1px 2px rgba(16, 24, 29, .05), 0 8px 24px rgba(16, 24, 29, .06);
 
     --font-head: "Archivo", "Archivo Fallback", Arial, "Helvetica Neue", sans-serif;
-    --font-body: "Figtree", Arial, "Helvetica Neue", sans-serif;
+    --font-body: "Figtree", "Figtree Fallback", Arial, "Helvetica Neue", sans-serif;
     --font-mono: "IBM Plex Mono", Menlo, Consolas, "SFMono-Regular", monospace;
 
     --wrap: 1080px;
@@ -65,6 +65,17 @@
     font-weight: 600 700;
     size-adjust: 103.4%;
     line-gap-override: 0%;
+}
+
+/* Same idea for body text: Arial scaled to Figtree's width (100.6%, measured), so
+   paragraphs wrap the same before and after the web font arrives. Latin only:
+   Figtree has no Cyrillic, so Russian text renders in plain Arial either way. */
+@font-face {
+    font-family: "Figtree Fallback";
+    src: local("Arial"), local("ArialMT");
+    size-adjust: 100.6%;
+    line-gap-override: 0%;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2212, U+FEFF, U+FFFD;
 }
 
 /* ---------- Base ---------- */
@@ -145,7 +156,7 @@ svg {
     color: var(--on-bright);
 }
 
-/* Small mono labels: dates, numbers, chips */
+/* Small mono labels */
 .mono {
     font-family: var(--font-mono);
     font-weight: 500;
@@ -221,14 +232,11 @@ svg {
 }
 
 .section-title:last-child,
-.section-title + .facts,
-.section-title + .distances,
 .section-title + .faq {
     margin-top: 0;
 }
 
-.section-title + .facts,
-.section-title + .distances,
+.section-title + .known,
 .section-title + .involve-grid,
 .section-title + .faq {
     margin-top: 32px;
@@ -431,6 +439,13 @@ svg {
     max-width: 58ch;
 }
 
+.hero-note {
+    font-size: 15px;
+    color: var(--muted);
+    margin-top: 12px;
+    max-width: 74ch; /* the lede's 58ch at 19px */
+}
+
 .actions {
     display: flex;
     flex-wrap: wrap;
@@ -438,14 +453,14 @@ svg {
     margin-top: 32px;
 }
 
-/* ---------- Event cards ---------- */
+/* ---------- Community cards: week · month · what for ---------- */
 .section-cards {
     padding-top: 0;
 }
 
 .event-grid {
     display: grid;
-    grid-template-columns: 1.15fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
@@ -457,78 +472,21 @@ svg {
     padding: 28px;
     border: 1px solid var(--rule);
     border-radius: var(--radius);
+    border-top: 3px solid var(--bright);
     background: var(--paper);
     box-shadow: var(--shadow);
 }
 
-.event-card-main {
-    border-top: 3px solid var(--bright);
-}
-
-.event-card-secondary {
-    background: var(--band);
-}
-
-.event-date {
+.event-label {
     color: var(--muted);
 }
 
 .event-title {
-    font-size: clamp(24px, 2.6vw, 30px);
-}
-
-.event-card-main .event-title {
-    font-size: clamp(28px, 3vw, 36px);
+    font-size: clamp(24px, 2.4vw, 28px);
 }
 
 .event-text {
     color: var(--muted);
-}
-
-.event-card .text-link {
-    margin-top: auto;
-    padding-top: 8px;
-}
-
-/* ---------- Key facts ---------- */
-.facts {
-    margin: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 48px;
-    border-top: 1px solid var(--rule);
-}
-
-.fact {
-    display: grid;
-    grid-template-columns: 110px 1fr;
-    gap: 16px;
-    align-items: baseline;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--rule);
-}
-
-.fact dt {
-    font-weight: 500;
-    font-size: 15px;
-    color: var(--muted);
-}
-
-.fact dd {
-    margin: 0;
-    color: var(--ink);
-    text-transform: none;
-    letter-spacing: .02em;
-    font-size: 14px;
-}
-
-.fact-wide {
-    grid-column: 1 / -1;
-}
-
-.fact dd a {
-    margin-left: 10px;
-    white-space: nowrap;
 }
 
 /* ---------- Course ---------- */
@@ -634,7 +592,7 @@ svg {
     background: var(--bright);
 }
 
-/* ---------- The morning ---------- */
+/* ---------- What we know ---------- */
 .schedule {
     width: 100%;
     max-width: 620px;
@@ -666,6 +624,43 @@ svg {
     color: var(--muted);
 }
 
+.known th {
+    width: 170px;
+    white-space: normal;
+    color: var(--muted);
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.known td {
+    color: var(--ink);
+}
+
+.known td a {
+    display: block;
+    width: fit-content;
+    margin-top: 4px;
+}
+
+/* The one thing not settled yet. Sits on paper: --accent on --band is below 4.5:1. */
+.known .is-pending th,
+.known .is-pending td {
+    color: var(--accent);
+}
+
+.known .is-pending td {
+    font-weight: 500;
+}
+
+.known-notes {
+    display: grid;
+    gap: 10px;
+    max-width: 620px;
+    margin-top: 24px;
+    font-size: 15px;
+    color: var(--muted);
+}
+
 /* ---------- Prose (the cause) ---------- */
 .prose > p + p {
     margin-top: 16px;
@@ -679,47 +674,6 @@ svg {
     margin-top: 24px;
     padding-top: 16px;
     border-top: 1px solid var(--rule);
-}
-
-/* ---------- 2027 race ---------- */
-.distances {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    border-top: 1px solid var(--rule);
-}
-
-.distances li {
-    padding-top: 16px;
-    color: var(--muted);
-}
-
-.distances strong {
-    display: block;
-    font-family: var(--font-head);
-    font-stretch: 105%;
-    font-weight: 700;
-    font-size: 28px;
-    line-height: 1.1;
-    margin-bottom: 8px;
-    font-variant-numeric: tabular-nums;
-}
-
-.chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 32px;
-}
-
-.chips li {
-    padding: 6px 10px;
-    border: 1px solid var(--rule);
-    color: var(--ink);
-}
-
-#race-2027 .note {
-    margin-top: 24px;
 }
 
 /* ---------- Get involved ---------- */
@@ -879,7 +833,7 @@ svg {
     gap: 12px;
 }
 
-.radio {
+.radio-row .radio {
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -1140,6 +1094,10 @@ svg {
     .notes {
         grid-template-columns: 1fr 1fr;
     }
+
+    .event-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 700px) {
@@ -1180,9 +1138,6 @@ svg {
         align-items: center;
     }
 
-    .event-grid,
-    .facts,
-    .distances,
     .involve-grid,
     .field-grid,
     .subgrid {
@@ -1193,14 +1148,8 @@ svg {
         width: 90px;
     }
 
-    .fact dd a {
-        display: block;
-        margin-left: 0;
-        margin-top: 4px;
-    }
-
-    .fact-wide {
-        grid-column: auto;
+    .known th {
+        width: 116px;
     }
 
     .notes {
@@ -1237,10 +1186,6 @@ svg {
 
     .menu-btn {
         padding-inline: 10px;
-    }
-
-    .fact {
-        grid-template-columns: 90px 1fr;
     }
 
     .radio-row {

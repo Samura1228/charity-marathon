@@ -82,3 +82,32 @@ CREATE POLICY "Allow public inserts" ON public.registrations
     AND coalesce(length(emergency_phone), 0)   <= 40
     AND coalesce(length(registration_date), 0) <= 10
   );
+
+
+-- ============================================================
+-- D. COMMUNITY FORM.  Run once, after C, before the community
+--    site goes live.
+--    Distance is now optional (people pick on the day), and the
+--    emergency contact is required: there are real weekly runs
+--    now, not a waiting list. Replaces the policy from block C;
+--    the column GRANT from block C stays as it is. index.html
+--    and app.js mirror these rules.
+-- ============================================================
+DROP POLICY IF EXISTS "Allow public inserts" ON public.registrations;
+CREATE POLICY "Allow public inserts" ON public.registrations
+  FOR INSERT TO anon
+  WITH CHECK (
+    terms_accepted = true
+    AND consent_at BETWEEN now() - interval '1 day' AND now() + interval '1 day'
+    AND (distance IS NULL OR distance IN ('5km', '1km'))
+    AND language IN ('EN', 'RU')
+    AND email ~* '^[^@\s]+@[^@\s]+\.[^@\s]{2,}$'
+    AND length(email) <= 254
+    AND length(first_name) BETWEEN 1 AND 100
+    AND length(last_name)  BETWEEN 1 AND 100
+    AND length(emergency_name)  BETWEEN 1 AND 100
+    AND length(emergency_phone) BETWEEN 1 AND 40
+    AND coalesce(length(phone), 0)             <= 40
+    AND coalesce(length(heard_from), 0)        <= 60
+    AND coalesce(length(registration_date), 0) <= 10
+  );
