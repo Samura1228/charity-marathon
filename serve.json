@@ -6,7 +6,8 @@
   ],
   "redirects": [
     { "source": "/privacy", "destination": "/privacy.html", "type": 301 },
-    { "source": "/terms", "destination": "/terms.html", "type": 301 }
+    { "source": "/terms", "destination": "/terms.html", "type": 301 },
+    { "source": "/join", "destination": "/#signup", "type": 302 }
   ],
   "headers": [
     {

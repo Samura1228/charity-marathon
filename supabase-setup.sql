@@ -111,3 +111,67 @@ CREATE POLICY "Allow public inserts" ON public.registrations
     AND coalesce(length(heard_from), 0)        <= 60
     AND coalesce(length(registration_date), 0) <= 10
   );
+
+
+-- ============================================================
+-- E. CHILDREN.  Run once, after D, before the new form goes live.
+--    A parent or guardian registers children (Terms 4): name,
+--    date of birth (4 to 17 today), whether a child aged 11-17
+--    may run without an adult, and consent to photos of them.
+--    Children sit in one jsonb column: client code cannot read
+--    the table, so it could not link rows in a second table.
+--    registrant_type NULL is accepted as "adult" so the form that
+--    is live while you run this keeps working until the deploy.
+--    Replaces the policy from block D; index.html and app.js
+--    mirror these rules.
+-- ============================================================
+ALTER TABLE public.registrations
+  ADD COLUMN IF NOT EXISTS registrant_type text,
+  ADD COLUMN IF NOT EXISTS children jsonb,
+  ADD COLUMN IF NOT EXISTS child_photo_consent boolean NOT NULL DEFAULT false;
+
+GRANT INSERT (registrant_type, children, child_photo_consent)
+  ON public.registrations TO anon;
+
+DROP POLICY IF EXISTS "Allow public inserts" ON public.registrations;
+CREATE POLICY "Allow public inserts" ON public.registrations
+  FOR INSERT TO anon
+  WITH CHECK (
+    terms_accepted = true
+    AND consent_at BETWEEN now() - interval '1 day' AND now() + interval '1 day'
+    AND (distance IS NULL OR distance IN ('5km', '1km'))
+    AND language IN ('EN', 'RU')
+    AND email ~* '^[^@\s]+@[^@\s]+\.[^@\s]{2,}$'
+    AND length(email) <= 254
+    AND length(first_name) BETWEEN 1 AND 100
+    AND length(last_name)  BETWEEN 1 AND 100
+    AND length(emergency_name)  BETWEEN 1 AND 100
+    AND length(emergency_phone) BETWEEN 1 AND 40
+    AND coalesce(length(phone), 0)             <= 40
+    AND coalesce(length(heard_from), 0)        <= 60
+    AND coalesce(length(registration_date), 0) <= 10
+    AND (
+      (coalesce(registrant_type, 'adult') = 'adult'
+        AND children IS NULL
+        AND child_photo_consent = false)
+      OR (
+        registrant_type = 'parent'
+        AND jsonb_typeof(children) = 'array'
+        AND jsonb_array_length(children) BETWEEN 1 AND 6
+        AND octet_length(children::text) <= 2000
+        AND NOT EXISTS (
+          SELECT 1 FROM jsonb_array_elements(children) AS c
+          WHERE NOT coalesce(
+            jsonb_typeof(c) = 'object'
+            AND length(c->>'name') BETWEEN 1 AND 100
+            AND (c->>'dob') ~ '^\d{4}-\d{2}-\d{2}$'
+            AND (c->>'dob')::date >  (current_date - interval '18 years')::date
+            AND (c->>'dob')::date <= (current_date - interval '4 years')::date
+            AND jsonb_typeof(c->'unaccompanied') = 'boolean'
+            AND (NOT (c->>'unaccompanied')::boolean
+                 OR (c->>'dob')::date <= (current_date - interval '11 years')::date),
+            false)
+        )
+      )
+    )
+  );

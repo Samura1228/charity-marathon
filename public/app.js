@@ -18,7 +18,7 @@
     var I18N = {
         en: {
             'meta.title': 'Limassol Charity Run — a free running community on the Limassol seafront',
-            'meta.description': 'A free running community in Limassol. We run the seafront every week and do something bigger once a month, for a playground every child can use.',
+            'meta.description': 'A free running community in Limassol. We run the seafront every week and once a month do something bigger. No fee, every pace welcome.',
 
             'a11y.skip': 'Skip to content',
             'a11y.home': 'Limassol Charity Run — home',
@@ -43,13 +43,10 @@
 
             'card1.label': 'Every week',
             'card1.title': 'The training run',
-            'card1.text': 'Molos Sculpture Park. About 5 km along the seafront, plus a 1 km loop for anyone walking or pushing a buggy. Free, no timing, and no sign-up needed for each run — once you are on the list, you just turn up.',
+            'card1.text': 'Molos Sculpture Park. About 5 km along the seafront, plus a 1 km loop for anyone walking or pushing a buggy. Free, no timing. Register once, then just turn up. Everyone who runs, including guests, must be registered.',
             'card2.label': 'Once a month',
             'card2.title': 'Something bigger',
-            'card2.text': 'A longer route, a photographer, sometimes a guest or a partner. The days worth bringing a friend to.',
-            'card3.label': 'What for',
-            'card3.title': 'An accessible playground',
-            'card3.text': 'Most playgrounds have a step, a gate, or sand at the entrance. That is enough to keep a child in a wheelchair outside, watching. We run for one where nobody is left outside.',
+            'card2.text': 'A longer route, a photographer, sometimes a guest or a partner. The days worth bringing a friend to — they can register in two minutes via the QR code at the start.',
 
             'known.title': 'What we know',
             'known.where': 'Where',
@@ -65,8 +62,8 @@
             'known.cost.v': 'Nothing',
             'known.when': 'Day and time',
             'known.when.v': 'Being settled now — everyone on the list hears first',
-            'known.fixed': 'Once the day is set, it does not move. The whole point of a weekly run is that you never have to check.',
-            'known.weather': 'If the weather makes a run unsafe we cancel and email everyone on the list, by 20:00 the evening before at the latest.',
+            'known.fixed': 'We aim to keep the same day and time every week. Any change is announced by email.',
+            'known.weather': 'If the weather makes a run unsafe, we cancel and email everyone on the list, normally by 20:00 the evening before. If conditions change overnight, we will let you know as early as possible on the morning of the run.',
 
             'course.title': 'Out 2.5 km. Turn. Home.',
             'course.sub': 'Flat, paved, and free of cars the whole way.',
@@ -86,7 +83,7 @@
             'rules.2': 'Under-18s must be registered by a parent or guardian.',
             'rules.3': 'Buggies and prams are welcome. Please start at the back.',
             'rules.4': 'No dogs, bicycles, scooters, skates or any wheels other than buggies and wheelchairs.',
-            'rules.5': 'Wheelchair users are welcome on the paved promenade.',
+            'rules.5': 'Wheelchair users are welcome on the whole route — the promenade is flat and paved.',
             'rules.6': 'This is a training run, not a race. There is no timing and no finish order — but there is always someone to run with.',
             'rules.7': 'Please keep to the right and let faster runners pass on the left. The promenade stays open to the public.',
 
@@ -102,45 +99,55 @@
 
             'cause.title': 'Why we run',
             'cause.p1': 'Most playgrounds have a step, a gate, or sand at the entrance. That is enough to keep a child in a wheelchair on the outside, watching the others play.',
-            'cause.p2': 'Our goal is a sports playground in Limassol built so that nobody is left outside. The organisation that will receive the money is being confirmed.',
-            'cause.p3': 'We are not collecting money yet. We are getting the legal side right first, with a lawyer, because money raised for a child\'s playground deserves to be handled properly. When we start, every euro will be published here with the name of the organisation that receives it. The runs themselves are free and always will be.',
+            'cause.p2': 'One day we would like to support an accessible playground in Limassol.',
+            'cause.p3': 'The community does not collect or accept money.',
 
             'involved.title': 'Help us build it',
-            'involved.run': '<strong>Run with us</strong> Turn up and bring someone. That is the whole job, and it is the one that matters most.',
+            'involved.run': '<strong>Run with us</strong> Register, turn up and bring a friend; they can register in two minutes via the QR code at the start.',
             'involved.lead': '<strong>Lead a run</strong> We are looking for a coach, and for people who can run the session when the organiser cannot. A community survives its missed weeks, not its good ones.',
-            'involved.partner': '<strong>Partner with us</strong> Local companies: support a monthly event, or help with what the playground will cost.',
+            'involved.partner': '<strong>Partner with us</strong> Local companies: if you would like to be part of the community, contact us.',
             'involved.link': 'Write to us',
 
             'faq.title': 'Questions',
             'faq.q1': 'When do you run?',
-            'faq.a1': 'Every week, at Molos Sculpture Park. We are settling the day and time now, and everyone on the list hears as soon as it is fixed. After that it does not change.',
+            'faq.a1': 'Every week, at Molos Sculpture Park. We are settling the day and time now, and everyone on the list hears as soon as it is fixed. We aim to keep the same day and time every week; any change is announced by email.',
             'faq.q2': 'Do I need to sign up for every run?',
-            'faq.a2': 'No. Join the list once so we can tell you about changes and the monthly events. After that, just turn up.',
+            'faq.a2': 'No. Register once so we can tell you about changes and the monthly events. After that, just turn up. Guests register at the start via the QR code.',
             'faq.q3': 'How fast do you run?',
             'faq.a3': 'Every pace. Someone will be running yours, and nobody is left behind on the way back.',
             'faq.q4': 'What if I have never run 5 km?',
             'faq.a4': 'Walk it. The 1 km loop exists for exactly this, and plenty of people do the short one for months before the long one.',
             'faq.q5': 'Is it really free?',
-            'faq.a5': 'Yes, all of it. We are not collecting money at all yet — we are getting the legal side right first. If that ever changes, we will say so clearly and in advance.',
+            'faq.a5': 'Yes. Taking part is free.',
             'faq.q6': 'Can children take part?',
             'faq.a6': 'Yes, from the age of 4, with an adult beside them if they are under 11. The 1 km loop is made for families.',
             'faq.q7': 'Can I bring my dog?',
             'faq.a7': 'No. Dogs are not allowed at our runs.',
             'faq.q8': 'Is it accessible?',
-            'faq.a8': 'The seafront path is flat and paved, with no cars. Wheelchair users and buggies are welcome on the 1 km loop.',
+            'faq.a8': 'The seafront path is flat and paved, with no cars. Wheelchair users and buggies are welcome on the whole route, and the 1 km loop is there for anyone who wants a shorter one.',
             'faq.q9': 'Do I need a medical certificate?',
             'faq.a9': 'No. You confirm you are fit and healthy when you join. If you have any doubt, see a doctor first.',
             'faq.q10': 'What happens if it rains?',
-            'faq.a10': 'We run. We only cancel when it is genuinely unsafe, and then we email everyone by 20:00 the evening before.',
+            'faq.a10': 'We run. We only cancel when it is genuinely unsafe, and then we email everyone, normally by 20:00 the evening before. If conditions change overnight, we will email as early as possible on the morning of the run and may also call or text.',
             'faq.q11': 'Will there be photos?',
-            'faq.a11': 'Yes, for our website and social media. You can opt out when you join, and we will give you a coloured wristband. Email us and we will remove any photo.',
+            'faq.a11': 'Yes, for our website and social media. You can opt out when you join, and we will give you a coloured wristband. Email us and we will remove any photo. Photos in which a child is recognisable are published only with the parent\'s consent given at registration.',
 
             'form.title': 'Join the community',
+            'form.who': 'Who are you registering?',
+            'form.who.adult': 'Myself — I am 18 or over',
+            'form.who.child': 'My child — I am their parent or guardian',
             'form.first': 'First name',
             'form.last': 'Last name',
             'form.email': 'Email',
             'form.phone': 'Phone (optional)',
             'form.phone.hint': 'In case we need to reach you on the morning of a run',
+            'form.children': 'Children',
+            'form.children.note': 'Your details above are the parent\'s or guardian\'s, and you are registered too. Children must be between 4 and 17.',
+            'form.child.name': 'Child\'s full name',
+            'form.child.dob': 'Date of birth',
+            'form.child.alone': 'My child may run without an adult (ages 11–17)',
+            'form.child.remove': 'Remove',
+            'form.child.add': 'Add another child',
             'form.distance': 'Which distance? (optional)',
             'form.d5': '5 km run',
             'form.d1': '1 km loop — walking or with a buggy',
@@ -155,10 +162,12 @@
             'form.emergency': 'Emergency contact',
             'form.emergency.name': 'Name',
             'form.emergency.phone': 'Phone',
+            'form.emergency.note': 'Please tell this person you gave us their details. We use them only in an emergency.',
             'form.consents': 'Before you send',
-            'form.terms': 'I have read and accept the <a href="terms.html" target="_blank" rel="noopener">Terms of Participation</a>, and I confirm I am fit and healthy enough to take part.',
+            'form.terms': 'I have read and accept the <a href="terms.html" target="_blank" rel="noopener">Terms of Participation</a> for myself and for any child I register, and I confirm that everyone I register is fit and healthy enough to take part.',
             'form.photo': 'Please don\'t publish photos where I am the main subject.',
-            'form.news': 'Email me news about the playground project.',
+            'form.child.photo': 'I consent to photos of my child being published on the website and social media.',
+            'form.news': 'Email me news about the community.',
             'form.privacy.note': 'We use your details only to run this community and to tell you about changes and monthly events. Emergency contact is used only in a medical emergency. You can leave the list at any time. <a href="privacy.html">Read the privacy policy</a>.',
             'form.submit': 'Count me in',
             'form.sending': 'Sending…',
@@ -167,11 +176,15 @@
             'form.error': 'Something went wrong. Please write to info@limassolcharityrun.com and we\'ll add you by hand.',
             'form.v.required': 'Please fill this in.',
             'form.v.email': 'Please enter a valid email address.',
+            'form.v.who': 'Please choose who you are registering.',
+            'form.v.child.name': 'Please enter the child\'s name.',
+            'form.v.child.dob': 'Please enter a date of birth.',
+            'form.v.child.age': 'Children must be between 4 and 17 on the day you register.',
             'form.v.terms': 'Please accept the Terms of Participation to continue.',
             'form.v.fix': 'Please check the highlighted fields.',
 
             'footer.desc': 'Limassol Charity Run — a running community on the seafront in Limassol, Cyprus.',
-            'footer.org': 'Organised by Artem Bobrov · Limassol, Cyprus · <a href="mailto:info@limassolcharityrun.com">info@limassolcharityrun.com</a>',
+            'footer.org': 'Limassol, Cyprus · <a href="mailto:info@limassolcharityrun.com">info@limassolcharityrun.com</a>',
             'footer.privacy': 'Privacy policy',
             'footer.terms': 'Terms of participation',
             'footer.home': 'Back to the community'
@@ -179,7 +192,7 @@
 
         ru: {
             'meta.title': 'Limassol Charity Run — бесплатное беговое сообщество на набережной Лимассола',
-            'meta.description': 'Бесплатное беговое сообщество в Лимассоле. Каждую неделю бегаем по набережной, а раз в месяц делаем что-то побольше — ради площадки, доступной каждому ребёнку.',
+            'meta.description': 'Бесплатное беговое сообщество в Лимассоле. Каждую неделю бегаем по набережной, а раз в месяц делаем что-то побольше. Без взноса, любой темп.',
 
             'a11y.skip': 'К содержанию',
             'a11y.home': 'Limassol Charity Run — на главную',
@@ -204,13 +217,10 @@
 
             'card1.label': 'Каждую неделю',
             'card1.title': 'Тренировка',
-            'card1.text': 'Парк скульптур Молос. Около 5 км по набережной плюс круг 1 км для тех, кто идёт пешком или с коляской. Бесплатно, без хронометража, записываться на каждую не нужно — если вы в списке, просто приходите.',
+            'card1.text': 'Парк скульптур Молос. Около 5 км по набережной плюс круг 1 км для тех, кто идёт пешком или с коляской. Бесплатно, без хронометража. Зарегистрируйтесь один раз — и просто приходите. Все, кто бежит, включая гостей, должны быть зарегистрированы.',
             'card2.label': 'Раз в месяц',
             'card2.title': 'Событие',
-            'card2.text': 'Маршрут длиннее, фотограф, иногда гость или партнёр. Те дни, ради которых стоит позвать друга.',
-            'card3.label': 'Ради чего',
-            'card3.title': 'Доступная площадка',
-            'card3.text': 'У большинства площадок есть ступенька, калитка или песок у входа. Этого хватает, чтобы ребёнок на коляске остался снаружи. Мы бежим ради площадки, где снаружи не останется никто.',
+            'card2.text': 'Маршрут длиннее, фотограф, иногда гость или партнёр. Те дни, ради которых стоит позвать друга, — он зарегистрируется за две минуты по QR-коду на старте.',
 
             'known.title': 'Что уже известно',
             'known.where': 'Где',
@@ -226,8 +236,8 @@
             'known.cost.v': 'Ничего',
             'known.when': 'День и время',
             'known.when.v': 'Сейчас определяются — все из списка узнают первыми',
-            'known.fixed': 'Когда день определится, он больше не меняется. Весь смысл еженедельной пробежки в том, что её не нужно каждый раз проверять.',
-            'known.weather': 'Если погода делает пробежку небезопасной, мы отменяем и пишем всем из списка — не позднее 20:00 накануне.',
+            'known.fixed': 'Мы стараемся держать один и тот же день и время каждую неделю. Любые изменения сообщаем по почте.',
+            'known.weather': 'Если погода делает пробежку небезопасной, мы отменяем её и пишем всем из списка — обычно до 20:00 накануне. Если погода изменится ночью, сообщим как можно раньше утром в день пробежки.',
 
             'course.title': '2,5 км туда. Разворот. Обратно.',
             'course.sub': 'Ровно, с твёрдым покрытием и без машин на всём пути.',
@@ -247,7 +257,7 @@
             'rules.2': 'Участников младше 18 лет регистрирует родитель или опекун.',
             'rules.3': 'С колясками можно. Пожалуйста, стартуйте сзади.',
             'rules.4': 'Нельзя с собаками, велосипедами, самокатами, роликами и любыми колёсами, кроме колясок и инвалидных кресел.',
-            'rules.5': 'Участники на инвалидных колясках — добро пожаловать, набережная асфальтированная.',
+            'rules.5': 'Участники на инвалидных колясках — добро пожаловать на всём маршруте: набережная ровная и асфальтированная.',
             'rules.6': 'Это тренировка, а не соревнование. Хронометража и мест нет — зато всегда есть с кем бежать.',
             'rules.7': 'Держитесь правой стороны, пропускайте более быстрых слева. Набережная остаётся открытой для всех.',
 
@@ -263,45 +273,55 @@
 
             'cause.title': 'Ради чего мы бежим',
             'cause.p1': 'У большинства площадок есть ступенька, калитка или песок у входа. Этого хватает, чтобы ребёнок на коляске остался снаружи и смотрел, как играют другие.',
-            'cause.p2': 'Наша цель — спортивная площадка в Лимассоле, построенная так, чтобы снаружи не остался никто. Организация, которая получит деньги, сейчас определяется.',
-            'cause.p3': 'Пока мы не собираем деньги. Сначала разбираемся с юридической стороной — с юристом, потому что деньги, собранные на детскую площадку, заслуживают того, чтобы с ними обращались правильно. Когда начнём, каждый евро будет опубликован здесь вместе с названием организации, которая его получила. Сами тренировки бесплатные и такими останутся.',
+            'cause.p2': 'Когда-нибудь мы хотели бы поддержать доступную детскую площадку в Лимассоле.',
+            'cause.p3': 'Сообщество не собирает и не принимает деньги.',
 
             'involved.title': 'Помочь сообществу',
-            'involved.run': '<strong>Бегать с нами</strong> Приходите и приведите кого-нибудь. Это вся работа, и она важнее остальных.',
+            'involved.run': '<strong>Бегать с нами</strong> Зарегистрируйтесь, приходите и приводите друга — он зарегистрируется за две минуты по QR-коду на старте.',
             'involved.lead': '<strong>Провести тренировку</strong> Ищем тренера и людей, которые проведут пробежку, когда организатор не может. Сообщество переживает не удачные недели, а пропущенные.',
-            'involved.partner': '<strong>Стать партнёром</strong> Местным компаниям: поддержать ежемесячное событие или помочь с тем, во что обойдётся площадка.',
+            'involved.partner': '<strong>Стать партнёром</strong> Местным компаниям: если хотите стать частью сообщества — напишите нам.',
             'involved.link': 'Напишите нам',
 
             'faq.title': 'Вопросы и ответы',
             'faq.q1': 'Когда вы бегаете?',
-            'faq.a1': 'Каждую неделю, в парке скульптур Молос. День и время сейчас определяются, и все из списка узнают сразу, как только они будут назначены. Дальше они не меняются.',
+            'faq.a1': 'Каждую неделю, в парке скульптур Молос. День и время сейчас определяются, и все из списка узнают сразу, как только они будут назначены. Мы стараемся держать один и тот же день и время каждую неделю; любые изменения сообщаем по почте.',
             'faq.q2': 'Нужно ли записываться на каждую тренировку?',
-            'faq.a2': 'Нет. Запишитесь в список один раз, чтобы мы могли сообщать об изменениях и ежемесячных событиях. Дальше просто приходите.',
+            'faq.a2': 'Нет. Зарегистрируйтесь один раз, чтобы мы могли сообщать об изменениях и ежемесячных событиях. Дальше просто приходите. Гости регистрируются на старте по QR-коду.',
             'faq.q3': 'В каком темпе вы бежите?',
             'faq.a3': 'В любом. Кто-то побежит в вашем, и на обратном пути никого не оставляют одного.',
             'faq.q4': 'А если я никогда не бегал 5 км?',
             'faq.a4': 'Пройдите пешком. Круг 1 км существует ровно для этого, и многие месяцами ходят короткий, прежде чем побежать длинный.',
             'faq.q5': 'Это правда бесплатно?',
-            'faq.a5': 'Да, всё. Мы пока вообще не собираем деньги — сначала разбираемся с юридической стороной. Если это изменится, мы скажем об этом прямо и заранее.',
+            'faq.a5': 'Да. Участие бесплатное.',
             'faq.q6': 'Можно с детьми?',
             'faq.a6': 'Да, с 4 лет; до 11 лет — рядом со взрослым. Круг 1 км сделан для семей.',
             'faq.q7': 'Можно с собакой?',
             'faq.a7': 'Нет, собаки на наших пробежках запрещены.',
             'faq.q8': 'Насколько это доступно?',
-            'faq.a8': 'Набережная ровная, асфальтированная, без машин. Коляски и инвалидные кресла — добро пожаловать на круг 1 км.',
+            'faq.a8': 'Набережная ровная, асфальтированная, без машин. Коляски и инвалидные кресла — добро пожаловать на всём маршруте, а круг 1 км — для тех, кому нужна дистанция короче.',
             'faq.q9': 'Нужна медицинская справка?',
             'faq.a9': 'Нет. Присоединяясь, вы подтверждаете, что достаточно здоровы. Если сомневаетесь — сначала к врачу.',
             'faq.q10': 'А если дождь?',
-            'faq.a10': 'Бежим. Отменяем только когда это действительно небезопасно, и тогда пишем всем до 20:00 накануне.',
+            'faq.a10': 'Бежим. Отменяем, только когда это действительно небезопасно, и тогда пишем всем — обычно до 20:00 накануне. Если погода изменится ночью, напишем как можно раньше утром в день пробежки и можем также позвонить или прислать сообщение.',
             'faq.q11': 'Будут ли фотографии?',
-            'faq.a11': 'Да, для сайта и соцсетей. При записи можно отказаться — выдадим цветной браслет. Напишите нам, и мы удалим любое фото.',
+            'faq.a11': 'Да, для сайта и соцсетей. При записи можно отказаться — выдадим цветной браслет. Напишите нам, и мы удалим любое фото. Фотографии, на которых можно узнать ребёнка, публикуем только с согласия родителя, данного при регистрации.',
 
             'form.title': 'Присоединиться',
+            'form.who': 'Кого вы регистрируете?',
+            'form.who.adult': 'Себя — мне 18 или больше',
+            'form.who.child': 'Своего ребёнка — я его родитель или опекун',
             'form.first': 'Имя',
             'form.last': 'Фамилия',
             'form.email': 'Email',
             'form.phone': 'Телефон (необязательно)',
             'form.phone.hint': 'На случай, если нужно связаться утром перед тренировкой',
+            'form.children': 'Дети',
+            'form.children.note': 'Данные выше — ваши, как родителя или опекуна, и вы тоже зарегистрированы. Детям должно быть от 4 до 17 лет.',
+            'form.child.name': 'Имя и фамилия ребёнка',
+            'form.child.dob': 'Дата рождения',
+            'form.child.alone': 'Мой ребёнок может бежать без взрослого (11–17 лет)',
+            'form.child.remove': 'Убрать',
+            'form.child.add': 'Добавить ещё ребёнка',
             'form.distance': 'Какая дистанция? (необязательно)',
             'form.d5': '5 км бегом',
             'form.d1': '1 км — пешком или с коляской',
@@ -316,10 +336,12 @@
             'form.emergency': 'Экстренный контакт',
             'form.emergency.name': 'Имя',
             'form.emergency.phone': 'Телефон',
+            'form.emergency.note': 'Пожалуйста, предупредите этого человека, что вы дали нам его контакты. Мы используем их только в экстренной ситуации.',
             'form.consents': 'Перед отправкой',
-            'form.terms': 'Я прочитал(а) и принимаю <a href="terms.html" target="_blank" rel="noopener">Условия участия</a> и подтверждаю, что достаточно здоров(а) для участия.',
+            'form.terms': 'Я прочитал(а) и принимаю <a href="terms.html" target="_blank" rel="noopener">Условия участия</a> — за себя и за каждого ребёнка, которого регистрирую, — и подтверждаю, что все, кого я регистрирую, достаточно здоровы для участия.',
             'form.photo': 'Пожалуйста, не публикуйте фотографии, где я главный объект съёмки.',
-            'form.news': 'Присылайте мне новости о проекте площадки.',
+            'form.child.photo': 'Я согласен(на) на публикацию фотографий моего ребёнка на сайте и в соцсетях.',
+            'form.news': 'Присылайте мне новости сообщества.',
             'form.privacy.note': 'Мы используем ваши данные только чтобы вести сообщество и сообщать об изменениях и ежемесячных событиях. Экстренный контакт — только при медицинской необходимости. Выйти из списка можно в любой момент. <a href="privacy.html">Политика конфиденциальности</a>.',
             'form.submit': 'Я с вами',
             'form.sending': 'Отправляем…',
@@ -328,11 +350,15 @@
             'form.error': 'Что-то пошло не так. Напишите на info@limassolcharityrun.com — добавим вручную.',
             'form.v.required': 'Заполните это поле.',
             'form.v.email': 'Введите корректный адрес электронной почты.',
+            'form.v.who': 'Выберите, кого вы регистрируете.',
+            'form.v.child.name': 'Введите имя ребёнка.',
+            'form.v.child.dob': 'Укажите дату рождения.',
+            'form.v.child.age': 'Ребёнку должно быть от 4 до 17 лет на день регистрации.',
             'form.v.terms': 'Чтобы продолжить, примите Условия участия.',
             'form.v.fix': 'Проверьте выделенные поля.',
 
             'footer.desc': 'Limassol Charity Run — беговое сообщество на набережной Лимассола, Кипр.',
-            'footer.org': 'Организатор — Artem Bobrov · Лимассол, Кипр · <a href="mailto:info@limassolcharityrun.com">info@limassolcharityrun.com</a>',
+            'footer.org': 'Лимассол, Кипр · <a href="mailto:info@limassolcharityrun.com">info@limassolcharityrun.com</a>',
             'footer.privacy': 'Политика конфиденциальности',
             'footer.terms': 'Условия участия',
             'footer.home': 'Назад к сообществу'
@@ -362,6 +388,22 @@
     /* ---------- 2. Language toggle ---------- */
     var metaDescription = document.querySelector('meta[name="description"]');
 
+    // Translate every tagged element under root (the page, or a form row added later)
+    function translateIn(root) {
+        root.querySelectorAll('[data-i18n]').forEach(function (el) {
+            el.textContent = t(el.getAttribute('data-i18n'));
+        });
+        root.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+            el.innerHTML = t(el.getAttribute('data-i18n-html')); // author-controlled markup only
+        });
+        root.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
+            el.setAttribute('placeholder', t(el.getAttribute('data-i18n-placeholder')));
+        });
+        root.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+            el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria')));
+        });
+    }
+
     function applyLanguage(next) {
         lang = (next === 'ru') ? 'ru' : 'en';
 
@@ -371,18 +413,7 @@
             metaDescription.setAttribute('content', t(page ? page + '.meta.description' : 'meta.description'));
         }
 
-        document.querySelectorAll('[data-i18n]').forEach(function (el) {
-            el.textContent = t(el.getAttribute('data-i18n'));
-        });
-        document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
-            el.innerHTML = t(el.getAttribute('data-i18n-html')); // author-controlled markup only
-        });
-        document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
-            el.setAttribute('placeholder', t(el.getAttribute('data-i18n-placeholder')));
-        });
-        document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
-            el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria')));
-        });
+        translateIn(document);
         document.querySelectorAll('.lang-btn').forEach(function (btn) {
             btn.setAttribute('aria-pressed', btn.getAttribute('data-lang') === lang ? 'true' : 'false');
         });
@@ -481,6 +512,23 @@
     function validate() {
         var ok = true;
 
+        var who = registrant();
+        if (!who) { setFieldError('registrant', 'form.v.who'); ok = false; }
+        else setFieldError('registrant', null);
+
+        if (who === 'parent') {
+            childList.querySelectorAll('.child-row').forEach(function (row) {
+                var name = row.querySelector('[data-child="name"]');
+                var dob = row.querySelector('[data-child="dob"]');
+                var age = ageToday(dob.value);
+                if (!name.value.trim()) { setFieldError(name.id, 'form.v.child.name'); ok = false; }
+                else setFieldError(name.id, null);
+                if (!dob.value) { setFieldError(dob.id, 'form.v.child.dob'); ok = false; }
+                else if (!(age >= 4 && age <= 17)) { setFieldError(dob.id, 'form.v.child.age'); ok = false; }
+                else setFieldError(dob.id, null);
+            });
+        }
+
         ['first_name', 'last_name', 'emergency_name', 'emergency_phone'].forEach(function (id) {
             if (!value(id)) { setFieldError(id, 'form.v.required'); ok = false; }
             else setFieldError(id, null);
@@ -498,11 +546,106 @@
         return ok;
     }
 
+    function isoDate(d) {
+        return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+    }
+
     function todayIso() {
+        return isoDate(new Date());
+    }
+
+    function yearsAgo(n) {
         var d = new Date();
-        var m = String(d.getMonth() + 1).padStart(2, '0');
-        var day = String(d.getDate()).padStart(2, '0');
-        return d.getFullYear() + '-' + m + '-' + day;
+        d.setFullYear(d.getFullYear() - n);
+        return d;
+    }
+
+    // Whole years from a YYYY-MM-DD birth date to today; NaN if the date is missing or malformed
+    function ageToday(dob) {
+        var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(dob || '');
+        if (!m) return NaN;
+        var now = new Date();
+        var age = now.getFullYear() - Number(m[1]);
+        var month = now.getMonth() + 1;
+        if (month < Number(m[2]) || (month === Number(m[2]) && now.getDate() < Number(m[3]))) age--;
+        return age;
+    }
+
+    /* ---------- Children: registered by a parent or guardian (Terms 4) ---------- */
+    var MAX_CHILDREN = 6;
+    var childrenBox = document.getElementById('children');
+    var childList = document.getElementById('child-list');
+    var childTemplate = document.getElementById('child-row');
+    var addChildBtn = document.getElementById('add-child');
+    var childPhotoBox = document.getElementById('child-photo-box');
+    var childSeq = 0;
+
+    function registrant() {
+        var r = form ? form.querySelector('input[name="registrant"]:checked') : null;
+        return r ? r.value : ''; // 'adult' | 'parent'
+    }
+
+    // "May run without an adult" is only a question for ages 11 to 17
+    function syncChildRow(row) {
+        var age = ageToday(row.querySelector('[data-child="dob"]').value);
+        var alone = row.querySelector('.child-alone');
+        alone.hidden = !(age >= 11 && age <= 17);
+        if (alone.hidden) alone.querySelector('input').checked = false;
+    }
+
+    function syncChildButtons() {
+        var rows = childList.querySelectorAll('.child-row');
+        rows.forEach(function (row) { row.querySelector('.child-remove').hidden = rows.length === 1; });
+        addChildBtn.hidden = rows.length >= MAX_CHILDREN;
+    }
+
+    function addChild() {
+        var n = ++childSeq;
+        var row = childTemplate.content.firstElementChild.cloneNode(true);
+        ['name', 'dob'].forEach(function (part) {
+            var input = row.querySelector('[data-child="' + part + '"]');
+            var field = input.closest('.field');
+            input.id = 'child-' + part + '-' + n;
+            input.setAttribute('aria-describedby', 'err-' + input.id);
+            field.querySelector('label').setAttribute('for', input.id);
+            field.querySelector('.field-error').id = 'err-' + input.id;
+        });
+        var dob = row.querySelector('[data-child="dob"]');
+        var oldest = yearsAgo(18);
+        oldest.setDate(oldest.getDate() + 1);
+        dob.min = isoDate(oldest);       // under 18 today
+        dob.max = isoDate(yearsAgo(4));  // at least 4 today
+        dob.addEventListener('input', function () { syncChildRow(row); });
+        dob.addEventListener('change', function () { syncChildRow(row); });
+        row.querySelector('.child-remove').addEventListener('click', function () {
+            delete errorKeys['child-name-' + n];
+            delete errorKeys['child-dob-' + n];
+            row.remove();
+            syncChildButtons();
+            addChildBtn.focus();
+        });
+        translateIn(row);
+        childList.appendChild(row);
+        syncChildButtons();
+        return row;
+    }
+
+    function syncRegistrant() {
+        var isParent = registrant() === 'parent';
+        childrenBox.hidden = !isParent;
+        childPhotoBox.hidden = !isParent;
+        if (!isParent) childPhotoBox.querySelector('input').checked = false;
+        if (isParent && !childList.querySelector('.child-row')) addChild();
+    }
+
+    function childRows() {
+        return Array.prototype.map.call(childList.querySelectorAll('.child-row'), function (row) {
+            return {
+                name: row.querySelector('[data-child="name"]').value.trim(),
+                dob: row.querySelector('[data-child="dob"]').value,
+                unaccompanied: row.querySelector('[data-child="alone"]').checked // only offered at 11 to 17
+            };
+        });
     }
 
     function showConfirmation() {
@@ -515,8 +658,16 @@
         // Clear an error as soon as the field is corrected
         function clearOwnError(el) {
             if (!el) return;
-            if (el.id && errorKeys[el.id]) setFieldError(el.id, null);
+            if (el.name === 'registrant') setFieldError('registrant', null);
+            else if (el.id && errorKeys[el.id]) setFieldError(el.id, null);
         }
+        form.addEventListener('change', function (e) {
+            if (e.target.name === 'registrant') syncRegistrant();
+        });
+        addChildBtn.addEventListener('click', function () {
+            addChild().querySelector('[data-child="name"]').focus();
+        });
+        syncRegistrant();
         form.addEventListener('input', function (e) { clearOwnError(e.target); });
         form.addEventListener('change', function (e) { clearOwnError(e.target); });
 
@@ -541,6 +692,7 @@
             var phone = value('phone');
             var heard = value('heard_from');
             var distance = form.querySelector('input[name="distance"]:checked');
+            var who = registrant();
             var row = {
                 first_name: value('first_name'),
                 last_name: value('last_name'),
@@ -551,6 +703,9 @@
                 heard_from: heard ? heard : null,
                 emergency_name: value('emergency_name'),
                 emergency_phone: value('emergency_phone'),
+                registrant_type: who, // 'adult' | 'parent'; a parent accepts the Terms for each child
+                children: who === 'parent' ? childRows() : null,
+                child_photo_consent: who === 'parent' && checked('child_photo_consent'),
                 terms_accepted: true,
                 photo_opt_out: checked('photo_opt_out'),
                 marketing_opt_in: checked('marketing_opt_in'),
