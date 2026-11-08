@@ -1,5 +1,5 @@
 /* ============================================================
-   LIMASSOL CHARITY RUN — styles
+   LIMASSOL SEAFRONT RUN — styles
    Tokens → base → components → sections → responsive
    ============================================================ */
 
@@ -1259,7 +1259,8 @@ svg {
     }
 }
 
-@media (max-width: 700px) {
+/* Brand plus the inline nav need about 760px, so the menu button takes over below 780. */
+@media (max-width: 780px) {
     .site-nav {
         display: none;
         position: absolute;
@@ -1296,7 +1297,9 @@ svg {
         display: inline-flex;
         align-items: center;
     }
+}
 
+@media (max-width: 700px) {
     .involve-grid,
     .field-grid,
     .subgrid {
@@ -1327,8 +1330,8 @@ svg {
 }
 
 /* The Russian nav labels are longer: inline they need about 900px, so between
-   the phone breakpoint and that, Russian gets the menu button too. */
-@media (min-width: 701px) and (max-width: 900px) {
+   the menu breakpoint and that, Russian gets the menu button too. */
+@media (min-width: 781px) and (max-width: 900px) {
     html[lang="ru"] .site-nav {
         display: none;
         position: absolute;
@@ -1376,8 +1379,12 @@ svg {
         gap: 8px;
     }
 
+    /* On the narrowest phones the name breaks onto two lines instead of pushing the page wide. */
     .brand-name {
         font-size: 15px;
+        white-space: normal;
+        line-height: 1.1;
+        text-wrap: balance;
     }
 
     .lang-btn {

@@ -1,5 +1,5 @@
 /* ============================================================
-   LIMASSOL CHARITY RUN — app.js
+   LIMASSOL SEAFRONT RUN — app.js
    1. translations   2. language toggle   3. header/menu
    4. sign-up form
    Legal pages add their own strings via window.LCR_LEGAL (legal.js).
@@ -17,11 +17,11 @@
     /* ---------- 1. Translations ---------- */
     var I18N = {
         en: {
-            'meta.title': 'Limassol Charity Run — a free running community on the Limassol seafront',
+            'meta.title': 'Limassol Seafront Run — a free weekly running community',
             'meta.description': 'A free running community in Limassol. We run the seafront every week and once a month do something bigger. No fee, every pace welcome.',
 
             'a11y.skip': 'Skip to content',
-            'a11y.home': 'Limassol Charity Run — home',
+            'a11y.home': 'Limassol Seafront Run — home',
             'a11y.language': 'Language',
             'a11y.community': 'The community',
             'a11y.known': 'What we know so far',
@@ -173,7 +173,7 @@
             'form.sending': 'Sending…',
             'form.success.title': 'You\'re in.',
             'form.success.body': 'We\'ll email you before the next run — see you at Molos.',
-            'form.error': 'Something went wrong. Please write to info@limassolcharityrun.com and we\'ll add you by hand.',
+            'form.error': 'Something went wrong. Please write to info@limassolseafrontrun.com and we\'ll add you by hand.',
             'form.v.required': 'Please fill this in.',
             'form.v.email': 'Please enter a valid email address.',
             'form.v.who': 'Please choose who you are registering.',
@@ -183,19 +183,19 @@
             'form.v.terms': 'Please accept the Terms of Participation to continue.',
             'form.v.fix': 'Please check the highlighted fields.',
 
-            'footer.desc': 'Limassol Charity Run — a running community on the seafront in Limassol, Cyprus.',
-            'footer.org': 'Limassol, Cyprus · <a href="mailto:info@limassolcharityrun.com">info@limassolcharityrun.com</a>',
+            'footer.desc': 'Limassol Seafront Run — a free running community in Limassol, Cyprus.',
+            'footer.org': 'Limassol, Cyprus · <a href="mailto:info@limassolseafrontrun.com">info@limassolseafrontrun.com</a>',
             'footer.privacy': 'Privacy policy',
             'footer.terms': 'Terms of participation',
             'footer.home': 'Back to the community'
         },
 
         ru: {
-            'meta.title': 'Limassol Charity Run — бесплатное беговое сообщество на набережной Лимассола',
+            'meta.title': 'Limassol Seafront Run — бесплатное беговое сообщество на набережной Лимассола',
             'meta.description': 'Бесплатное беговое сообщество в Лимассоле. Каждую неделю бегаем по набережной, а раз в месяц делаем что-то побольше. Без взноса, любой темп.',
 
             'a11y.skip': 'К содержанию',
-            'a11y.home': 'Limassol Charity Run — на главную',
+            'a11y.home': 'Limassol Seafront Run — на главную',
             'a11y.language': 'Язык',
             'a11y.community': 'Сообщество',
             'a11y.known': 'Что уже известно',
@@ -347,7 +347,7 @@
             'form.sending': 'Отправляем…',
             'form.success.title': 'Вы в деле.',
             'form.success.body': 'Напишем перед ближайшей тренировкой — увидимся на Молосе.',
-            'form.error': 'Что-то пошло не так. Напишите на info@limassolcharityrun.com — добавим вручную.',
+            'form.error': 'Что-то пошло не так. Напишите на info@limassolseafrontrun.com — добавим вручную.',
             'form.v.required': 'Заполните это поле.',
             'form.v.email': 'Введите корректный адрес электронной почты.',
             'form.v.who': 'Выберите, кого вы регистрируете.',
@@ -357,8 +357,8 @@
             'form.v.terms': 'Чтобы продолжить, примите Условия участия.',
             'form.v.fix': 'Проверьте выделенные поля.',
 
-            'footer.desc': 'Limassol Charity Run — беговое сообщество на набережной Лимассола, Кипр.',
-            'footer.org': 'Лимассол, Кипр · <a href="mailto:info@limassolcharityrun.com">info@limassolcharityrun.com</a>',
+            'footer.desc': 'Limassol Seafront Run — бесплатное беговое сообщество в Лимассоле, Кипр.',
+            'footer.org': 'Лимассол, Кипр · <a href="mailto:info@limassolseafrontrun.com">info@limassolseafrontrun.com</a>',
             'footer.privacy': 'Политика конфиденциальности',
             'footer.terms': 'Условия участия',
             'footer.home': 'Назад к сообществу'
