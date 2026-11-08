@@ -323,6 +323,16 @@ svg {
     background: var(--band);
 }
 
+/* --accent on --band is only 4.2:1 in light mode, so links in band prose use ink.
+   Cards on a band sit on --paper and keep the accent. */
+.band .prose a {
+    color: var(--ink);
+}
+
+.band .prose a:hover {
+    text-decoration-thickness: 2px;
+}
+
 /* Paper next to paper gets a hairline; band sections separate themselves. */
 .section:not(.band) + .section:not(.band) {
     border-top: 1px solid var(--rule);

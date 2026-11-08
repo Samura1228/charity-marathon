@@ -98,8 +98,8 @@
             'plastic.body': 'No single-use plastic. Bring your own bottle — we will refill it at the start and the finish. We take everything we bring away with us, and we would rather leave the seafront cleaner than we found it. If you see litter on the route, pick it up.',
 
             'cause.title': 'Why we run',
-            'cause.p1': 'Most playgrounds have a step, a gate, or sand at the entrance. That is enough to keep a child in a wheelchair on the outside, watching the others play.',
-            'cause.p2': 'One day we would like to support an accessible playground in Limassol.',
+            'cause.p1': 'Cyprus has no dedicated local para sport training centres. A Council of Europe and European Union <a href="https://rm.coe.int/cyprus-country-para-sport-factsheet/48802c43a1" target="_blank" rel="noopener">factsheet</a> on para sport in Cyprus, published in February 2026, says it plainly: there are not enough suitable places for athletes with disabilities to train, and one of its recommendations is to explore regional para sport training hubs.',
+            'cause.p2': 'One day we would like to support an accessible sports ground in Limassol where people with disabilities, adults and children, can train.',
             'cause.p3': 'The community does not collect or accept money.',
 
             'involved.title': 'Help us build it',
@@ -272,8 +272,8 @@
             'plastic.body': 'Никакого одноразового пластика. Приносите свою бутылку — мы наполним её на старте и на финише. Мы увозим с собой всё, что привезли, и хотим оставить набережную чище, чем она была. Увидите мусор на маршруте — подберите.',
 
             'cause.title': 'Ради чего мы бежим',
-            'cause.p1': 'У большинства площадок есть ступенька, калитка или песок у входа. Этого хватает, чтобы ребёнок на коляске остался снаружи и смотрел, как играют другие.',
-            'cause.p2': 'Когда-нибудь мы хотели бы поддержать доступную детскую площадку в Лимассоле.',
+            'cause.p1': 'На Кипре нет специализированных местных центров пара-спорта. В феврале 2026 года Совет Европы и Европейский союз выпустили <a href="https://rm.coe.int/cyprus-country-para-sport-factsheet/48802c43a1" target="_blank" rel="noopener">факт-лист</a> о пара-спорте на Кипре, и там это сказано прямо: подходящих мест для тренировок спортсменов с инвалидностью не хватает, а одна из рекомендаций — рассмотреть создание региональных тренировочных центров пара-спорта.',
+            'cause.p2': 'Когда-нибудь мы хотели бы поддержать доступную спортивную площадку в Лимассоле, где смогут тренироваться люди с инвалидностью — взрослые и дети.',
             'cause.p3': 'Сообщество не собирает и не принимает деньги.',
 
             'involved.title': 'Помочь сообществу',
