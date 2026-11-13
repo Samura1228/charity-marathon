@@ -1,7 +1,7 @@
 /* ============================================================
    LIMASSOL SEAFRONT RUN — app.js
    1. translations   2. language toggle   3. header/menu
-   4. sign-up form
+   4. sign-up form   5. feedback form (feedback.html)
    Legal pages add their own strings via window.LCR_LEGAL (legal.js).
    ============================================================ */
 (function () {
@@ -9,6 +9,7 @@
 
     /* ---------- Config ---------- */
     var SUPABASE_URL = 'https://rugxsvceksogunhqxwxd.supabase.co/rest/v1/registrations';
+    var FEEDBACK_URL = 'https://rugxsvceksogunhqxwxd.supabase.co/rest/v1/feedback';
     var SUPABASE_KEY = 'sb_publishable_cl593if7NYgdCHA7mCiCRA_Ch69Q9-I'; // publishable key — safe in client code
 
     var PAGE_LOADED_AT = Date.now();
@@ -176,6 +177,29 @@
             'form.v.terms': 'Please accept the Terms of Participation to continue.',
             'form.v.fix': 'Please check the highlighted fields.',
 
+            'feedback.meta.title': 'Feedback — Limassol Seafront Run',
+            'feedback.meta.description': 'Tell us how the run went, so we know what to fix before the next one.',
+            'feedback.title': 'How was the run?',
+            'feedback.intro': 'It takes a minute: only the rating is required, everything else is optional.',
+            'feedback.rating': 'Overall, how was it?',
+            'feedback.star.1': '1 of 5',
+            'feedback.star.2': '2 of 5',
+            'feedback.star.3': '3 of 5',
+            'feedback.star.4': '4 of 5',
+            'feedback.star.5': '5 of 5',
+            'feedback.liked': 'What did you like?',
+            'feedback.disliked': 'What didn\'t you like?',
+            'feedback.suggestions': 'What would you change or add?',
+            'feedback.other': 'Anything else you want to tell us?',
+            'feedback.name': 'Your name (optional)',
+            'feedback.name.hint': 'We don\'t ask who you are. Leave this blank and your answers aren\'t linked to you.',
+            'feedback.submit': 'Send feedback',
+            'feedback.privacy': 'How we handle your answers: <a href="privacy.html#feedback">privacy policy</a>.',
+            'feedback.success.title': 'Thank you!',
+            'feedback.success.body': 'We read every answer. See you on Tuesday on the seafront.',
+            'feedback.error': 'Your feedback wasn\'t sent. Please check your connection and try again — everything you typed is still here.',
+            'feedback.v.rating': 'Please choose a rating from 1 to 5.',
+
             'footer.desc': 'Limassol Seafront Run — a free running community in Limassol, Cyprus.',
             'footer.org': 'Limassol, Cyprus · <a href="mailto:info@limassolseafrontrun.com">info@limassolseafrontrun.com</a>',
             'footer.privacy': 'Privacy policy',
@@ -342,6 +366,29 @@
             'form.v.child.age': 'Ребёнку должно быть от 4 до 17 лет на день регистрации.',
             'form.v.terms': 'Чтобы продолжить, примите Условия участия.',
             'form.v.fix': 'Проверьте выделенные поля.',
+
+            'feedback.meta.title': 'Отзыв о тренировке — Limassol Seafront Run',
+            'feedback.meta.description': 'Расскажите, как прошла тренировка, чтобы мы знали, что исправить к следующей.',
+            'feedback.title': 'Как прошла тренировка?',
+            'feedback.intro': 'Это займёт минуту: обязательна только оценка, остальное — по желанию.',
+            'feedback.rating': 'Как вам в целом?',
+            'feedback.star.1': '1 из 5',
+            'feedback.star.2': '2 из 5',
+            'feedback.star.3': '3 из 5',
+            'feedback.star.4': '4 из 5',
+            'feedback.star.5': '5 из 5',
+            'feedback.liked': 'Что понравилось?',
+            'feedback.disliked': 'Что не понравилось?',
+            'feedback.suggestions': 'Что бы вы изменили или добавили?',
+            'feedback.other': 'Хотите рассказать что-то ещё?',
+            'feedback.name': 'Ваше имя (необязательно)',
+            'feedback.name.hint': 'Мы не спрашиваем, кто вы. Оставьте поле пустым — и ответы не будут связаны с вами.',
+            'feedback.submit': 'Отправить отзыв',
+            'feedback.privacy': 'Как мы обращаемся с ответами — в <a href="privacy.html#feedback">политике конфиденциальности</a>.',
+            'feedback.success.title': 'Спасибо!',
+            'feedback.success.body': 'Мы читаем каждый ответ. Увидимся во вторник на набережной.',
+            'feedback.error': 'Отзыв не отправился. Проверьте интернет и попробуйте ещё раз — всё, что вы написали, на месте.',
+            'feedback.v.rating': 'Поставьте оценку от 1 до 5.',
 
             'footer.desc': 'Limassol Seafront Run — бесплатное беговое сообщество в Лимассоле, Кипр.',
             'footer.org': 'Лимассол, Кипр · <a href="mailto:info@limassolseafrontrun.com">info@limassolseafrontrun.com</a>',
@@ -721,6 +768,95 @@
             }).finally(function () {
                 submitBtn.disabled = false;
                 submitBtn.textContent = t('form.submit');
+            });
+        });
+    }
+
+    /* ---------- 5. Feedback form (feedback.html) ---------- */
+    var feedbackForm = document.getElementById('feedback-form');
+
+    // The page is reused every week: ?d=YYYY-MM-DD names the run. Anything
+    // else, including an impossible date such as 2026-02-30, is sent as null.
+    function trainingDateFromUrl() {
+        var d = new URLSearchParams(window.location.search).get('d') || '';
+        var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(d);
+        if (!m) return null;
+        var y = Number(m[1]), mo = Number(m[2]) - 1, day = Number(m[3]);
+        var date = new Date(Date.UTC(y, mo, day));
+        return (date.getUTCFullYear() === y && date.getUTCMonth() === mo && date.getUTCDate() === day) ? d : null;
+    }
+
+    if (feedbackForm) {
+        var trainingDate = trainingDateFromUrl();
+
+        function optional(id) {
+            var v = value(id);
+            return v ? v : null;
+        }
+
+        function showThanks() {
+            feedbackForm.hidden = true;
+            confirmEl.hidden = false;
+            confirmEl.focus();
+        }
+
+        feedbackForm.addEventListener('change', function (e) {
+            if (e.target.name === 'rating') setFieldError('rating', null);
+        });
+
+        feedbackForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (submitBtn.disabled) return; // already sending
+            setStatus(null);
+
+            // Honeypot filled: pretend it worked and send nothing.
+            var honeypot = feedbackForm.querySelector('input[name="website"]');
+            if (honeypot && honeypot.value) {
+                showThanks();
+                return;
+            }
+
+            var rating = feedbackForm.querySelector('input[name="rating"]:checked');
+            if (!rating) {
+                setFieldError('rating', 'feedback.v.rating');
+                setStatus('form.v.fix');
+                feedbackForm.querySelector('input[name="rating"]').focus();
+                return;
+            }
+
+            var row = {
+                training_date: trainingDate,
+                rating: Number(rating.value),
+                liked: optional('liked'),
+                disliked: optional('disliked'),
+                suggestions: optional('suggestions'),
+                other: optional('other'),
+                name: optional('fb_name'),
+                lang: lang // 'en' | 'ru'
+            };
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = t('form.sending');
+
+            fetch(FEEDBACK_URL, {
+                method: 'POST',
+                headers: {
+                    'apikey': SUPABASE_KEY,
+                    'Authorization': 'Bearer ' + SUPABASE_KEY,
+                    'Content-Type': 'application/json',
+                    'Prefer': 'return=minimal' // anon has no SELECT, so ask for nothing back
+                },
+                body: JSON.stringify(row)
+            }).then(function (res) {
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                showThanks();
+            }).catch(function (err) {
+                // Keep everything the person typed; just tell them.
+                if (window.console) console.error('Feedback failed:', err);
+                setStatus('feedback.error');
+            }).finally(function () {
+                submitBtn.disabled = false;
+                submitBtn.textContent = t('feedback.submit');
             });
         });
     }

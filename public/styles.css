@@ -900,7 +900,8 @@ svg {
 }
 
 .field input,
-.field select {
+.field select,
+.field textarea {
     width: 100%;
     min-height: 48px;
     padding: 0 14px;
@@ -912,18 +913,27 @@ svg {
     transition: border-color var(--ease);
 }
 
+.field textarea {
+    min-height: 104px;
+    padding: 12px 14px;
+    line-height: 1.5;
+    resize: vertical;
+}
+
 .field input::placeholder {
     color: var(--muted);
     opacity: .7;
 }
 
 .field input:hover,
-.field select:hover {
+.field select:hover,
+.field textarea:hover {
     border-color: var(--muted);
 }
 
 .field input:focus-visible,
-.field select:focus-visible {
+.field select:focus-visible,
+.field textarea:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 0;
     border-color: var(--accent);
@@ -1124,6 +1134,7 @@ svg {
     display: none;
 }
 
+.confirm h2,
 .confirm h3 {
     font-size: clamp(24px, 2.6vw, 30px);
     font-weight: 700;
@@ -1136,6 +1147,72 @@ svg {
 
 .confirm .btn {
     margin-top: 20px;
+}
+
+/* ---------- Feedback page: star rating ----------
+   Five real radio buttons (keyboard arrows, screen readers); each label shows
+   a star. Every star up to the checked one is filled. */
+.stars {
+    position: relative;
+    display: flex;
+    gap: 4px;
+}
+
+/* The radios stay focusable but invisible; .field input would otherwise
+   stretch them to full width and push the page sideways. */
+.field .stars input {
+    width: 1px;
+    height: 1px;
+    min-height: 0;
+    padding: 0;
+    border: 0;
+}
+
+.star {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius);
+    cursor: pointer;
+}
+
+.star svg {
+    width: 36px;
+    height: 36px;
+    fill: transparent;
+    stroke: var(--muted);
+    stroke-width: 1.5;
+    stroke-linejoin: round;
+    transition: fill var(--ease), stroke var(--ease);
+}
+
+/* Fallback without :has(): at least the chosen star is filled */
+.stars input:checked + .star svg,
+.stars:has(input:checked) .star svg {
+    fill: var(--accent);
+    stroke: var(--accent);
+}
+
+.stars input:checked + .star ~ .star svg {
+    fill: transparent;
+    stroke: var(--muted);
+}
+
+/* After the rule above, so stars past the chosen one still react to hover */
+.star:hover svg,
+.stars input:checked + .star ~ .star:hover svg {
+    stroke: var(--accent);
+}
+
+.stars input:focus-visible + .star {
+    outline: 2px solid var(--accent);
+    outline-offset: 0;
+}
+
+.field.is-invalid .star svg {
+    stroke: var(--accent);
 }
 
 /* ---------- Footer ---------- */
@@ -1204,6 +1281,11 @@ svg {
 .legal .prose > p {
     margin-bottom: 18px;
     color: var(--muted);
+}
+
+/* privacy.html#feedback is linked from the feedback page; clear the sticky header */
+.legal .prose > p[id] {
+    scroll-margin-top: calc(var(--header-h) + 16px);
 }
 
 .legal .prose strong {

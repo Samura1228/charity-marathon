@@ -175,3 +175,44 @@ CREATE POLICY "Allow public inserts" ON public.registrations
       )
     )
   );
+
+
+-- ============================================================
+-- F. FEEDBACK AFTER A RUN.  Run once; independent of A-E.
+--    feedback.html posts one row per answer. The limits live on
+--    the table itself, so the policy can stay WITH CHECK (true);
+--    the maxlength attributes in feedback.html mirror them.
+--    As in block C, anon may write only the form's own columns
+--    (no id, no created_at).
+--    Deliberately NO select, update or delete policy for anon,
+--    the same choice as for registrations: free text plus an
+--    optional name is personal data, and nothing in client code
+--    may read it back. Read the answers in the Supabase dashboard
+--    (Table Editor -> feedback).
+--    The privacy policy promises to delete feedback after 12
+--    months. Run this now and then:
+--      DELETE FROM public.feedback WHERE created_at < now() - interval '12 months';
+-- ============================================================
+CREATE TABLE IF NOT EXISTS public.feedback (
+  id            uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  created_at    timestamptz NOT NULL DEFAULT now(),
+  training_date date,
+  rating        smallint NOT NULL CHECK (rating BETWEEN 1 AND 5),
+  liked         text CHECK (length(liked) <= 2000),
+  disliked      text CHECK (length(disliked) <= 2000),
+  suggestions   text CHECK (length(suggestions) <= 2000),
+  other         text CHECK (length(other) <= 2000),
+  name          text CHECK (length(name) <= 100),
+  lang          text CHECK (lang IN ('en', 'ru'))
+);
+
+ALTER TABLE public.feedback ENABLE ROW LEVEL SECURITY;
+
+REVOKE ALL ON public.feedback FROM anon, authenticated;
+GRANT INSERT (training_date, rating, liked, disliked, suggestions, other, name, lang)
+  ON public.feedback TO anon;
+
+DROP POLICY IF EXISTS "Allow public inserts" ON public.feedback;
+CREATE POLICY "Allow public inserts" ON public.feedback
+  FOR INSERT TO anon
+  WITH CHECK (true);
