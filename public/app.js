@@ -47,22 +47,19 @@
             'card1.text': 'On the Limassol seafront; we will email the exact start point. About 5 km along the water, plus a 1 km loop for anyone walking or pushing a buggy. Free, no timing. Register once, then just turn up. Everyone who runs, including guests, must be registered.',
             'card2.label': 'First run',
             'card2.title': 'Tuesday, 17 November',
-            'card2.text': 'Planned for 19:00, a shorter 3 km to start. We will confirm the date and the start point by email. A good day to bring a friend — they can register in two minutes via the QR code at the start.',
+            'card2.text': '19:00, opposite Dream Tower, at the blue public sports ground on the seafront. About 45 minutes, including warm-up and cool-down. Free, every pace welcome. A good day to bring a friend — they can register in two minutes via the QR code at the start.',
 
-            'known.title': 'Schedule',
+            'known.title': 'First training run',
             'known.where': 'Where',
-            'known.where.v': 'On the Limassol seafront. The exact start point is still being chosen; everyone on the list gets it by email.',
-            'known.first': 'First run',
-            'known.first.v': 'Planned for Tuesday, 17 November, 3 km — we will confirm by email',
-            'known.distance': 'Distance',
-            'known.distance.v': 'About 5 km, flat and paved, plus a 1 km loop',
+            'known.where.v': 'Opposite Dream Tower, at the blue public sports ground on the seafront',
+            'known.map': 'Open in Google Maps',
             'known.long': 'How long',
-            'known.long.v': 'About an hour, including coffee afterwards for anyone who stays',
+            'known.long.v': 'About 45 minutes, including warm-up and cool-down',
             'known.cost': 'Cost',
             'known.cost.v': 'Nothing',
             'known.when': 'When',
-            'known.when.v': 'Every Tuesday, 19:00',
-            'known.fixed': 'We aim to keep the same day and time every week. Any change is announced by email.',
+            'known.when.v': 'Tuesday, 17 November, 19:00',
+            'known.fixed': 'After the first run we will announce the regular schedule by email.',
             'known.weather': 'If the weather makes a run unsafe, we cancel and email everyone on the list, normally by 20:00 the evening before. If conditions change overnight, we will let you know as early as possible on the morning of the run.',
 
             'course.title': 'Out 2.5 km. Turn. Home.',
@@ -142,9 +139,6 @@
             'form.child.alone': 'My child may run without an adult (ages 11–17)',
             'form.child.remove': 'Remove',
             'form.child.add': 'Add another child',
-            'form.distance': 'Which distance? (optional)',
-            'form.d5': '5 km run',
-            'form.d1': '1 km loop — walking or with a buggy',
             'form.heard': 'Where did you hear about us? (optional)',
             'form.heard.choose': 'Choose…',
             'form.heard.friend': 'A friend',
@@ -167,6 +161,13 @@
             'form.sending': 'Sending…',
             'form.success.title': 'You\'re in.',
             'form.success.body': 'We\'ll email you the start point before the next run — see you on the seafront.',
+            'cal.title': 'Add the runs to your calendar',
+            'cal.text': 'Subscribe once: our runs appear in your calendar with a reminder an hour before. New runs, cancellations and changes show up by themselves.',
+            'cal.apple': 'iPhone / Mac',
+            'cal.google': 'Google Calendar',
+            'cal.copy': 'Copy link (Outlook, other)',
+            'cal.copied': 'Link copied. In your calendar app choose “Subscribe to calendar” / “Add from URL” and paste it.',
+            'cal.copyfail': 'Copy this link and add it in your calendar app as a subscription: ',
             'form.error': 'Something went wrong. Please write to info@limassolseafrontrun.com and we\'ll add you by hand.',
             'form.v.required': 'Please fill this in.',
             'form.v.email': 'Please enter a valid email address.',
@@ -237,22 +238,19 @@
             'card1.text': 'На набережной Лимассола; точное место старта пришлём письмом. Около 5 км вдоль воды плюс круг 1 км для тех, кто идёт пешком или с коляской. Бесплатно, без хронометража. Зарегистрируйтесь один раз — и просто приходите. Все, кто бежит, включая гостей, должны быть зарегистрированы.',
             'card2.label': 'Первая тренировка',
             'card2.title': 'Вторник, 17 ноября',
-            'card2.text': 'Планируем на 19:00, для начала короче — 3 км. Дату и место старта подтвердим письмом. Хороший день, чтобы позвать друга, — он зарегистрируется за две минуты по QR-коду на старте.',
+            'card2.text': '19:00, напротив Dream Tower, на синей общественной спортплощадке на набережной. Около 45 минут вместе с разминкой и заминкой. Бесплатно, любой темп. Хороший день, чтобы позвать друга, — он зарегистрируется за две минуты по QR-коду на старте.',
 
-            'known.title': 'Расписание',
+            'known.title': 'Первая тренировка',
             'known.where': 'Где',
-            'known.where.v': 'На набережной Лимассола. Точное место старта ещё выбираем — все из списка получат его письмом.',
-            'known.first': 'Первая тренировка',
-            'known.first.v': 'Планируем на вторник, 17 ноября, 3 км — подтвердим письмом',
-            'known.distance': 'Дистанция',
-            'known.distance.v': 'Около 5 км, ровно и по асфальту, плюс круг 1 км',
+            'known.where.v': 'Напротив Dream Tower, на синей общественной спортплощадке на набережной',
+            'known.map': 'Открыть в Google Maps',
             'known.long': 'Сколько длится',
-            'known.long.v': 'Около часа, плюс кофе для тех, кто остаётся',
+            'known.long.v': 'Около 45 минут вместе с разминкой и заминкой',
             'known.cost': 'Стоимость',
             'known.cost.v': 'Ничего',
             'known.when': 'Когда',
-            'known.when.v': 'Каждый вторник, 19:00',
-            'known.fixed': 'Мы стараемся держать один и тот же день и время каждую неделю. Любые изменения сообщаем по почте.',
+            'known.when.v': 'Вторник, 17 ноября, 19:00',
+            'known.fixed': 'После первой тренировки сообщим постоянное расписание по почте.',
             'known.weather': 'Если погода делает пробежку небезопасной, мы отменяем её и пишем всем из списка — обычно до 20:00 накануне. Если погода изменится ночью, сообщим как можно раньше утром в день пробежки.',
 
             'course.title': '2,5 км туда. Разворот. Обратно.',
@@ -332,9 +330,6 @@
             'form.child.alone': 'Мой ребёнок может бежать без взрослого (11–17 лет)',
             'form.child.remove': 'Убрать',
             'form.child.add': 'Добавить ещё ребёнка',
-            'form.distance': 'Какая дистанция? (необязательно)',
-            'form.d5': '5 км бегом',
-            'form.d1': '1 км — пешком или с коляской',
             'form.heard': 'Откуда вы о нас узнали? (необязательно)',
             'form.heard.choose': 'Выберите…',
             'form.heard.friend': 'От друзей',
@@ -357,6 +352,13 @@
             'form.sending': 'Отправляем…',
             'form.success.title': 'Вы в деле.',
             'form.success.body': 'Пришлём место старта перед ближайшей тренировкой — увидимся на набережной.',
+            'cal.title': 'Добавьте пробежки в календарь',
+            'cal.text': 'Подпишитесь один раз: тренировки появятся в календаре с напоминанием за час. Новые пробежки, отмены и переносы добавятся сами.',
+            'cal.apple': 'iPhone / Mac',
+            'cal.google': 'Google Календарь',
+            'cal.copy': 'Ссылка для Outlook и других',
+            'cal.copied': 'Ссылка скопирована. В приложении календаря выберите «Подписаться на календарь» / «Добавить по URL» и вставьте её.',
+            'cal.copyfail': 'Скопируйте ссылку и добавьте её в календаре как подписку: ',
             'form.error': 'Что-то пошло не так. Напишите на info@limassolseafrontrun.com — добавим вручную.',
             'form.v.required': 'Заполните это поле.',
             'form.v.email': 'Введите корректный адрес электронной почты.',
@@ -454,7 +456,43 @@
         try { localStorage.setItem('lcr-lang', lang); } catch (e) { /* storage unavailable */ }
 
         refreshVisibleErrors();
+        syncCalendarLinks();
     }
+
+    /* ---------- Calendar subscription ----------
+       One feed per language, generated from calendar/events.json.
+       Subscribing (not a one-off .ics import) means later changes reach people. */
+    function calendarFeedUrl() {
+        var file = lang === 'ru' ? 'calendar-ru.ics' : 'calendar.ics';
+        return location.protocol === 'https:' || location.protocol === 'http:'
+            ? location.origin + '/' + file
+            : 'https://limassolseafrontrun.com/' + file;
+    }
+
+    function syncCalendarLinks() {
+        var https = calendarFeedUrl();
+        var webcal = https.replace(/^https?:/, 'webcal:');
+        document.querySelectorAll('[data-cal-link="apple"]').forEach(function (a) { a.href = webcal; });
+        document.querySelectorAll('[data-cal-link="google"]').forEach(function (a) {
+            a.href = 'https://calendar.google.com/calendar/r?cid=' + encodeURIComponent(webcal);
+        });
+        document.querySelectorAll('[data-cal-status]').forEach(function (p) { p.textContent = ''; });
+    }
+
+    document.querySelectorAll('[data-cal-copy]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var url = calendarFeedUrl();
+            var status = btn.closest('[data-cal]').querySelector('[data-cal-status]');
+            function fallback() { status.textContent = t('cal.copyfail') + url; }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(function () {
+                    status.textContent = t('cal.copied');
+                }, fallback);
+            } else {
+                fallback();
+            }
+        });
+    });
 
     document.querySelectorAll('.lang-btn').forEach(function (btn) {
         btn.addEventListener('click', function () {
@@ -724,14 +762,12 @@
 
             var phone = value('phone');
             var heard = value('heard_from');
-            var distance = form.querySelector('input[name="distance"]:checked');
             var who = registrant();
             var row = {
                 first_name: value('first_name'),
                 last_name: value('last_name'),
                 email: value('email'),
                 phone: phone ? phone : null,
-                distance: distance ? distance.value : null, // optional
                 language: lang === 'ru' ? 'RU' : 'EN',
                 heard_from: heard ? heard : null,
                 emergency_name: value('emergency_name'),

@@ -1,0 +1,35 @@
+{
+  "_help": "Source of the subscribable calendar (public/calendar.ics and public/calendar-ru.ics). Edit here, then run `npm run calendar` (it also runs on every `npm start`). Times are Cyprus local time. To cancel one Tuesday add its date to weekly[].cancelled; to cancel a one-off run set its \"cancelled\": true (keep the entry, so subscribers see it disappear). Never change an \"id\": calendars match events by it. Weekly series example (add to \"weekly\" once the regular schedule is set): {\"id\": \"tuesday-run\", \"day\": \"TU\", \"from\": \"2026-11-24\", \"until\": null, \"start\": \"19:00\", \"minutes\": 45, \"cancelled\": [], \"title\": {\"en\": ..., \"ru\": ...}, \"location\": {...}, \"map\": \"...\", \"notes\": {...}}.",
+  "name": {
+    "en": "Limassol Seafront Run",
+    "ru": "Limassol Seafront Run"
+  },
+  "description": {
+    "en": "Runs of Limassol Seafront Run. New runs and changes appear automatically.",
+    "ru": "Тренировки Limassol Seafront Run. Новые пробежки и изменения появляются автоматически."
+  },
+  "site": "https://limassolseafrontrun.com/",
+  "events": [
+    {
+      "id": "first-run-2026-11-17",
+      "date": "2026-11-17",
+      "start": "19:00",
+      "minutes": 45,
+      "cancelled": false,
+      "title": {
+        "en": "Limassol Seafront Run: first run (3 km)",
+        "ru": "Limassol Seafront Run: первая тренировка (3 км)"
+      },
+      "location": {
+        "en": "Opposite Dream Tower, blue public sports ground on the seafront, Limassol",
+        "ru": "Напротив Dream Tower, синяя общественная спортплощадка на набережной, Лимассол"
+      },
+      "map": "https://maps.app.goo.gl/RcvriCk2WbDyRAcf9",
+      "notes": {
+        "en": "A shorter 3 km to start. About 45 minutes including warm-up and cool-down. Free, every pace welcome. Bring a friend: they can register at the start via the QR code.",
+        "ru": "Для начала короче, 3 км. Около 45 минут вместе с разминкой и заминкой. Бесплатно, любой темп. Зовите друга: он зарегистрируется на старте по QR-коду."
+      }
+    }
+  ],
+  "weekly": []
+}

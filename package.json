@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Limassol Seafront Run website",
   "scripts": {
+    "calendar": "node scripts/build-calendar.js",
+    "prestart": "node scripts/build-calendar.js || echo 'calendar feed NOT rebuilt, see error above'",
     "start": "npx serve public -c ../serve.json -l $PORT --no-clipboard"
   },
   "engines": {
