@@ -141,9 +141,6 @@
             'form.child.alone': 'My child may run without an adult (ages 11–17)',
             'form.child.remove': 'Remove',
             'form.child.add': 'Add another child',
-            'form.distance': 'Which distance? (optional)',
-            'form.d5': '5 km run',
-            'form.d1': '1 km loop — walking or with a buggy',
             'form.heard': 'Where did you hear about us? (optional)',
             'form.heard.choose': 'Choose…',
             'form.heard.friend': 'A friend',
@@ -308,9 +305,6 @@
             'form.child.alone': 'Мой ребёнок может бежать без взрослого (11–17 лет)',
             'form.child.remove': 'Убрать',
             'form.child.add': 'Добавить ещё ребёнка',
-            'form.distance': 'Какая дистанция? (необязательно)',
-            'form.d5': '5 км бегом',
-            'form.d1': '1 км — пешком или с коляской',
             'form.heard': 'Откуда вы о нас узнали? (необязательно)',
             'form.heard.choose': 'Выберите…',
             'form.heard.friend': 'От друзей',
@@ -677,14 +671,12 @@
 
             var phone = value('phone');
             var heard = value('heard_from');
-            var distance = form.querySelector('input[name="distance"]:checked');
             var who = registrant();
             var row = {
                 first_name: value('first_name'),
                 last_name: value('last_name'),
                 email: value('email'),
                 phone: phone ? phone : null,
-                distance: distance ? distance.value : null, // optional
                 language: lang === 'ru' ? 'RU' : 'EN',
                 heard_from: heard ? heard : null,
                 emergency_name: value('emergency_name'),
