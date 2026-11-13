@@ -46,7 +46,7 @@
             'card1.text': 'On the Limassol seafront; we will email the exact start point. About 5 km along the water, plus a 1 km loop for anyone walking or pushing a buggy. Free, no timing. Register once, then just turn up. Everyone who runs, including guests, must be registered.',
             'card2.label': 'First run',
             'card2.title': 'Tuesday, 17 November',
-            'card2.text': 'Planned for 19:00, a shorter 3 km to start. We will confirm the date and the start point by email. A good day to bring a friend — they can register in two minutes via the QR code at the start.',
+            'card2.text': '19:00, opposite Dream Tower, at the blue public sports ground on the seafront. About 45 minutes, including warm-up and cool-down. Free, every pace welcome. A good day to bring a friend — they can register in two minutes via the QR code at the start.',
 
             'known.title': 'First training run',
             'known.where': 'Where',
@@ -207,7 +207,7 @@
             'card1.text': 'На набережной Лимассола; точное место старта пришлём письмом. Около 5 км вдоль воды плюс круг 1 км для тех, кто идёт пешком или с коляской. Бесплатно, без хронометража. Зарегистрируйтесь один раз — и просто приходите. Все, кто бежит, включая гостей, должны быть зарегистрированы.',
             'card2.label': 'Первая тренировка',
             'card2.title': 'Вторник, 17 ноября',
-            'card2.text': 'Планируем на 19:00, для начала короче — 3 км. Дату и место старта подтвердим письмом. Хороший день, чтобы позвать друга, — он зарегистрируется за две минуты по QR-коду на старте.',
+            'card2.text': '19:00, напротив Dream Tower, на синей общественной спортплощадке на набережной. Около 45 минут вместе с разминкой и заминкой. Бесплатно, любой темп. Хороший день, чтобы позвать друга, — он зарегистрируется за две минуты по QR-коду на старте.',
 
             'known.title': 'Первая тренировка',
             'known.where': 'Где',

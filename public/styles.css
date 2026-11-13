@@ -581,6 +581,11 @@ svg {
     gap: 20px;
 }
 
+/* A lone card (only the first run is announced) spans the full width */
+.event-grid > .event-card:only-child {
+    grid-column: 1 / -1;
+}
+
 .event-card {
     display: flex;
     flex-direction: column;
