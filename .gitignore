@@ -8,3 +8,7 @@ node_modules/
 # site-community-rebuild-brief.md section 10 lists what to change once the run day and time are set.
 site-community-rebuild-brief.md
 fonts-brief.md
+
+# Calendar feeds are generated from calendar/events.json on every start (npm run calendar).
+public/calendar.ics
+public/calendar-ru.ics

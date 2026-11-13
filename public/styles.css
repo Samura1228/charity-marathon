@@ -1408,3 +1408,55 @@ svg {
         width: 100%;
     }
 }
+
+/* ---------- Calendar subscription ---------- */
+.cal {
+    max-width: 620px;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+}
+
+.cal-title {
+    margin-top: 0;
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.cal-text {
+    font-size: 15px;
+    color: var(--muted);
+}
+
+.cal-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.confirm .cal-actions .btn {
+    margin-top: 0;
+}
+
+.cal-actions .btn {
+    font-size: 15px;
+    min-height: 44px;
+    padding-inline: 16px;
+}
+
+.cal-status {
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--muted);
+    overflow-wrap: anywhere;
+}
+
+.cal-status:empty {
+    display: none;
+}
+
+.confirm .cal {
+    margin-top: 24px;
+}

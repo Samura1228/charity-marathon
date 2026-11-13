@@ -160,6 +160,13 @@
             'form.sending': 'Sending…',
             'form.success.title': 'You\'re in.',
             'form.success.body': 'We\'ll email you the start point before the next run — see you on the seafront.',
+            'cal.title': 'Add the runs to your calendar',
+            'cal.text': 'Subscribe once: every Tuesday run appears in your calendar with a reminder an hour before, and if a run is cancelled or moved, your calendar updates by itself.',
+            'cal.apple': 'iPhone / Mac',
+            'cal.google': 'Google Calendar',
+            'cal.copy': 'Copy link (Outlook, other)',
+            'cal.copied': 'Link copied. In your calendar app choose “Subscribe to calendar” / “Add from URL” and paste it.',
+            'cal.copyfail': 'Copy this link and add it in your calendar app as a subscription: ',
             'form.error': 'Something went wrong. Please write to info@limassolseafrontrun.com and we\'ll add you by hand.',
             'form.v.required': 'Please fill this in.',
             'form.v.email': 'Please enter a valid email address.',
@@ -321,6 +328,13 @@
             'form.sending': 'Отправляем…',
             'form.success.title': 'Вы в деле.',
             'form.success.body': 'Пришлём место старта перед ближайшей тренировкой — увидимся на набережной.',
+            'cal.title': 'Добавьте пробежки в календарь',
+            'cal.text': 'Подпишитесь один раз: все тренировки по вторникам появятся в календаре с напоминанием за час, а если пробежку отменим или перенесём, календарь обновится сам.',
+            'cal.apple': 'iPhone / Mac',
+            'cal.google': 'Google Календарь',
+            'cal.copy': 'Ссылка для Outlook и других',
+            'cal.copied': 'Ссылка скопирована. В приложении календаря выберите «Подписаться на календарь» / «Добавить по URL» и вставьте её.',
+            'cal.copyfail': 'Скопируйте ссылку и добавьте её в календаре как подписку: ',
             'form.error': 'Что-то пошло не так. Напишите на info@limassolseafrontrun.com — добавим вручную.',
             'form.v.required': 'Заполните это поле.',
             'form.v.email': 'Введите корректный адрес электронной почты.',
@@ -395,7 +409,43 @@
         try { localStorage.setItem('lcr-lang', lang); } catch (e) { /* storage unavailable */ }
 
         refreshVisibleErrors();
+        syncCalendarLinks();
     }
+
+    /* ---------- Calendar subscription ----------
+       One feed per language, generated from calendar/events.json.
+       Subscribing (not a one-off .ics import) means later changes reach people. */
+    function calendarFeedUrl() {
+        var file = lang === 'ru' ? 'calendar-ru.ics' : 'calendar.ics';
+        return location.protocol === 'https:' || location.protocol === 'http:'
+            ? location.origin + '/' + file
+            : 'https://limassolseafrontrun.com/' + file;
+    }
+
+    function syncCalendarLinks() {
+        var https = calendarFeedUrl();
+        var webcal = https.replace(/^https?:/, 'webcal:');
+        document.querySelectorAll('[data-cal-link="apple"]').forEach(function (a) { a.href = webcal; });
+        document.querySelectorAll('[data-cal-link="google"]').forEach(function (a) {
+            a.href = 'https://calendar.google.com/calendar/r?cid=' + encodeURIComponent(webcal);
+        });
+        document.querySelectorAll('[data-cal-status]').forEach(function (p) { p.textContent = ''; });
+    }
+
+    document.querySelectorAll('[data-cal-copy]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var url = calendarFeedUrl();
+            var status = btn.closest('[data-cal]').querySelector('[data-cal-status]');
+            function fallback() { status.textContent = t('cal.copyfail') + url; }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(function () {
+                    status.textContent = t('cal.copied');
+                }, fallback);
+            } else {
+                fallback();
+            }
+        });
+    });
 
     document.querySelectorAll('.lang-btn').forEach(function (btn) {
         btn.addEventListener('click', function () {
