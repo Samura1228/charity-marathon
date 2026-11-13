@@ -1,16 +1,14 @@
 {
-  "_help": "Source of the subscribable calendar (public/calendar.ics and public/calendar-ru.ics). Edit here, then run `npm run calendar` (it also runs on every `npm start`). Times are Cyprus local time. To cancel one Tuesday add its date to weekly[].cancelled; to cancel a one-off run set its \"cancelled\": true (keep the entry, so subscribers see it disappear). Never change an \"id\": calendars match events by it.",
-
+  "_help": "Source of the subscribable calendar (public/calendar.ics and public/calendar-ru.ics). Edit here, then run `npm run calendar` (it also runs on every `npm start`). Times are Cyprus local time. To cancel one Tuesday add its date to weekly[].cancelled; to cancel a one-off run set its \"cancelled\": true (keep the entry, so subscribers see it disappear). Never change an \"id\": calendars match events by it. Weekly series example (add to \"weekly\" once the regular schedule is set): {\"id\": \"tuesday-run\", \"day\": \"TU\", \"from\": \"2026-11-24\", \"until\": null, \"start\": \"19:00\", \"minutes\": 45, \"cancelled\": [], \"title\": {\"en\": ..., \"ru\": ...}, \"location\": {...}, \"map\": \"...\", \"notes\": {...}}.",
   "name": {
     "en": "Limassol Seafront Run",
     "ru": "Limassol Seafront Run"
   },
   "description": {
-    "en": "Free weekly runs on the Limassol seafront. Updates automatically when the schedule changes.",
-    "ru": "Бесплатные еженедельные пробежки по набережной Лимассола. Обновляется автоматически, если расписание меняется."
+    "en": "Runs of Limassol Seafront Run. New runs and changes appear automatically.",
+    "ru": "Тренировки Limassol Seafront Run. Новые пробежки и изменения появляются автоматически."
   },
   "site": "https://limassolseafrontrun.com/",
-
   "events": [
     {
       "id": "first-run-2026-11-17",
@@ -33,29 +31,5 @@
       }
     }
   ],
-
-  "weekly": [
-    {
-      "id": "tuesday-run",
-      "day": "TU",
-      "from": "2026-11-24",
-      "until": null,
-      "start": "19:00",
-      "minutes": 45,
-      "cancelled": [],
-      "title": {
-        "en": "Limassol Seafront Run",
-        "ru": "Limassol Seafront Run"
-      },
-      "location": {
-        "en": "Opposite Dream Tower, blue public sports ground on the seafront, Limassol",
-        "ru": "Напротив Dream Tower, синяя общественная спортплощадка на набережной, Лимассол"
-      },
-      "map": "https://maps.app.goo.gl/RcvriCk2WbDyRAcf9",
-      "notes": {
-        "en": "Weekly run, about 5 km along the water. Free, every pace welcome. If a run is cancelled or moved, this calendar updates and we email everyone on the list.",
-        "ru": "Еженедельная пробежка, около 5 км вдоль моря. Бесплатно, любой темп. Если пробежку отменим или перенесём, календарь обновится, и мы напишем всем из списка."
-      }
-    }
-  ]
+  "weekly": []
 }
