@@ -45,7 +45,6 @@
                 <ul class="nav-list">
                     <li><a href="#community" data-i18n="nav.community">Community</a></li>
                     <li><a href="#schedule" data-i18n="nav.schedule">Schedule</a></li>
-                    <li><a href="#course" data-i18n="nav.course">Course</a></li>
                     <li><a href="#rules" data-i18n="nav.rules">Rules</a></li>
                     <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
                 </ul>
@@ -126,59 +125,6 @@
                     <p data-i18n="known.fixed">After the first run we will announce the regular schedule by email.</p>
                     <p data-i18n="known.weather">If the weather makes a run unsafe, we cancel and email everyone on the list, normally by 20:00 the evening before. If conditions change overnight, we will let you know as early as possible on the morning of the run.</p>
                 </div>
-            </div>
-        </section>
-
-        <!-- ================= COURSE ================= -->
-        <section class="section band" id="course" aria-labelledby="course-title">
-            <div class="wrap">
-                <h2 class="section-title" id="course-title" data-i18n="course.title">Out 2.5 km. Turn. Home.</h2>
-                <p class="section-sub" data-i18n="course.sub">Flat, paved, and free of cars the whole way.</p>
-
-                <div class="course-scroll">
-                    <svg class="course-svg" viewBox="0 0 760 180" role="img" aria-labelledby="course-svg-title">
-                        <title id="course-svg-title" data-i18n="course.svg.title">Course diagram: out 2.5 km along the seafront, turn, and return the same way</title>
-                        <!-- km ticks, 0.5 km apart -->
-                        <g class="ticks">
-                            <line x1="60" y1="58" x2="60" y2="72"/>
-                            <line x1="180" y1="62" x2="180" y2="72"/>
-                            <line x1="300" y1="58" x2="300" y2="72"/>
-                            <line x1="420" y1="62" x2="420" y2="72"/>
-                            <line x1="540" y1="58" x2="540" y2="72"/>
-                            <line x1="660" y1="58" x2="660" y2="72"/>
-                        </g>
-                        <g class="tick-labels mono">
-                            <text x="60" y="48" text-anchor="middle">0</text>
-                            <text x="180" y="48" text-anchor="middle" data-i18n="course.svg.t05">0.5</text>
-                            <text x="300" y="48" text-anchor="middle">1</text>
-                            <text x="420" y="48" text-anchor="middle" data-i18n="course.svg.t15">1.5</text>
-                            <text x="540" y="48" text-anchor="middle">2</text>
-                            <text x="660" y="48" text-anchor="middle" data-i18n="course.svg.t25">2.5 km</text>
-                        </g>
-                        <!-- outbound -->
-                        <path class="out" d="M60 78 H660"/>
-                        <!-- turn -->
-                        <path class="turn" d="M660 78 a20 20 0 0 1 0 40"/>
-                        <!-- return, dashed -->
-                        <path class="back" d="M660 118 H60"/>
-                        <!-- markers -->
-                        <circle class="marker marker-start" cx="60" cy="78" r="7"/>
-                        <circle class="marker marker-finish" cx="60" cy="118" r="7"/>
-                        <circle class="marker marker-turn" cx="680" cy="98" r="5"/>
-                        <!-- labels -->
-                        <g class="course-labels mono">
-                            <text x="60" y="150" text-anchor="start" data-i18n="course.svg.startfinish">Start · Finish</text>
-                            <text x="700" y="102" text-anchor="start" data-i18n="course.svg.turn">Turn</text>
-                        </g>
-                    </svg>
-                </div>
-
-                <ul class="notes">
-                    <li data-i18n="course.note1">Surface — paved promenade</li>
-                    <li data-i18n="course.note2">Climb — about 0 m</li>
-                    <li data-i18n="course.note3">Traffic — none, pedestrian path</li>
-                    <li data-i18n="course.note4">Water — at start and finish</li>
-                </ul>
             </div>
         </section>
 
