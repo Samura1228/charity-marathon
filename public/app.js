@@ -38,7 +38,7 @@
             'hero.eyebrow': 'Limassol · Cyprus',
             'hero.title': 'Run the seafront. Every Tuesday.',
             'hero.sub': 'A free running community in Limassol. We meet on the seafront every Tuesday at 19:00 for about 5 km along the water. No fee, no timing, every pace welcome.',
-            'hero.note': 'The first run is planned for Tuesday, 17 November: a shorter 3 km to start. We are still choosing the start point; everyone on the list gets it by email.',
+            'hero.note': 'The first run is planned for Tuesday, 17 November: a shorter 3 km to start. We meet opposite Dream Tower, at the blue public sports ground on the seafront.',
             'hero.cta1': 'Join us',
             'hero.cta2': 'Schedule',
 
@@ -101,7 +101,7 @@
 
             'faq.title': 'Questions',
             'faq.q1': 'When do you run?',
-            'faq.a1': 'Every Tuesday at 19:00, on the Limassol seafront. The first run is planned for 17 November and will be a shorter 3 km. We are still choosing the exact start point, and everyone on the list gets it by email. We aim to keep the same day and time every week; any change is announced by email.',
+            'faq.a1': 'Every Tuesday at 19:00, on the Limassol seafront. The first run is planned for 17 November and will be a shorter 3 km. We meet opposite Dream Tower, at the blue public sports ground. We aim to keep the same day, time and place every week; any change is emailed to everyone on the list.',
             'faq.q2': 'Do I need to sign up for every run?',
             'faq.a2': 'No. Register once so we can tell you about changes. After that, just turn up on Tuesday. Guests register at the start via the QR code.',
             'faq.q3': 'How fast do you run?',
@@ -229,7 +229,7 @@
             'hero.eyebrow': 'Лимассол · Кипр',
             'hero.title': 'Бежим по набережной. Каждый вторник.',
             'hero.sub': 'Бесплатное беговое сообщество в Лимассоле. Встречаемся на набережной каждый вторник в 19:00 — около 5 км вдоль воды. Без взноса, без хронометража, любой темп.',
-            'hero.note': 'Первую тренировку планируем на вторник, 17 ноября: для начала короче, 3 км. Место старта ещё выбираем — все из списка получат его письмом.',
+            'hero.note': 'Первую тренировку планируем на вторник, 17 ноября: для начала короче, 3 км. Встречаемся напротив Dream Tower, на синей общественной спортплощадке на набережной.',
             'hero.cta1': 'Присоединиться',
             'hero.cta2': 'Расписание',
 
@@ -292,7 +292,7 @@
 
             'faq.title': 'Вопросы и ответы',
             'faq.q1': 'Когда вы бегаете?',
-            'faq.a1': 'Каждый вторник в 19:00, на набережной Лимассола. Первую тренировку планируем на 17 ноября, она будет короче — 3 км. Точное место старта ещё выбираем — все из списка получат его письмом. Мы стараемся держать один и тот же день и время каждую неделю; любые изменения сообщаем по почте.',
+            'faq.a1': 'Каждый вторник в 19:00, на набережной Лимассола. Первую тренировку планируем на 17 ноября, она будет короче — 3 км. Встречаемся напротив Dream Tower, на синей общественной спортплощадке. Мы стараемся держать один и тот же день, время и место каждую неделю; о любых изменениях пишем всем из списка.',
             'faq.q2': 'Нужно ли записываться на каждую тренировку?',
             'faq.a2': 'Нет. Зарегистрируйтесь один раз, чтобы мы могли сообщать об изменениях. Дальше просто приходите по вторникам. Гости регистрируются на старте по QR-коду.',
             'faq.q3': 'В каком темпе вы бежите?',
