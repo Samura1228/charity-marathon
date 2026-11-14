@@ -1,0 +1,9 @@
+# Supabase CLI settings. Only Edge Functions are managed from this repo;
+# the database is set up with the SQL files in the repo root.
+project_id = "limassol-seafront-run"
+
+[functions.send-welcome]
+# The Database Webhook calls this function with the project's secret key
+# (sb_secret_...), which is not a JWT, so the platform check is off and
+# welcome.ts verifies the key itself.
+verify_jwt = false

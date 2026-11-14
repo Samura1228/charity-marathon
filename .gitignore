@@ -12,3 +12,7 @@ fonts-brief.md
 # Calendar feeds are generated from calendar/events.json on every start (npm run calendar).
 public/calendar.ics
 public/calendar-ru.ics
+
+# Supabase CLI working files (link state, caches).
+supabase/.temp/
+supabase/.branches/
