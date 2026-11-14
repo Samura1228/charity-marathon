@@ -167,6 +167,7 @@
             'cal.google': 'Google Calendar',
             'cal.copy': 'Copy link (Outlook, other)',
             'cal.copied': 'Link copied. In your calendar app choose “Subscribe to calendar” / “Add from URL” and paste it.',
+            'cal.applefail': 'Calendar did not open? In Calendar choose File → New Calendar Subscription and paste this link: ',
             'cal.copyfail': 'Copy this link and add it in your calendar app as a subscription: ',
             'form.error': 'Something went wrong. Please write to info@limassolseafrontrun.com and we\'ll add you by hand.',
             'form.v.required': 'Please fill this in.',
@@ -358,6 +359,7 @@
             'cal.google': 'Google Календарь',
             'cal.copy': 'Ссылка для Outlook и других',
             'cal.copied': 'Ссылка скопирована. В приложении календаря выберите «Подписаться на календарь» / «Добавить по URL» и вставьте её.',
+            'cal.applefail': 'Календарь не открылся? В приложении «Календарь» выберите Файл → Новая подписка на календарь и вставьте ссылку: ',
             'cal.copyfail': 'Скопируйте ссылку и добавьте её в календаре как подписку: ',
             'form.error': 'Что-то пошло не так. Напишите на info@limassolseafrontrun.com — добавим вручную.',
             'form.v.required': 'Заполните это поле.',
@@ -478,6 +480,29 @@
         });
         document.querySelectorAll('[data-cal-status]').forEach(function (p) { p.textContent = ''; });
     }
+
+    // webcal:// opens Apple Calendar on iPhone / Mac only. Elsewhere (Windows, Android,
+    // Linux) the click does nothing, so the button is hidden there.
+    var IS_APPLE = /iPhone|iPad|iPod|Macintosh|Mac OS X/.test(navigator.userAgent);
+    document.querySelectorAll('[data-cal-link="apple"]').forEach(function (a) {
+        if (!IS_APPLE) { a.hidden = true; return; }
+        // A Mac without a webcal handler (or a browser that blocks it) also does
+        // nothing: if the page keeps focus, explain what to do instead.
+        a.addEventListener('click', function () {
+            var left = false;
+            function gone() { left = true; }
+            window.addEventListener('blur', gone, { once: true });
+            document.addEventListener('visibilitychange', gone, { once: true });
+            setTimeout(function () {
+                window.removeEventListener('blur', gone);
+                document.removeEventListener('visibilitychange', gone);
+                if (!left) {
+                    a.closest('[data-cal]').querySelector('[data-cal-status]').textContent =
+                        t('cal.applefail') + calendarFeedUrl();
+                }
+            }, 2000);
+        });
+    });
 
     document.querySelectorAll('[data-cal-copy]').forEach(function (btn) {
         btn.addEventListener('click', function () {

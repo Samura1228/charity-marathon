@@ -1542,3 +1542,7 @@ svg {
 .confirm .cal {
     margin-top: 24px;
 }
+
+.cal-actions [hidden] {
+    display: none;
+}
